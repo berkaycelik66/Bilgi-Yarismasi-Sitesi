@@ -19,10 +19,17 @@ namespace YarismaSitesi
             {
                 String category = Request.QueryString["k"];
 
-
+                SqlDataAdapter da;
                 baglan.Open();
-                SqlDataAdapter da = new SqlDataAdapter("select * from pointsList where category='" + category + "'", baglan);
-
+                if (category == null)
+                {
+                    da = new SqlDataAdapter("select * from pointsList ORDER BY points DESC", baglan);
+                }
+                else
+                {
+                    da = new SqlDataAdapter("select * from pointsList where category='" + category + "' ORDER BY points DESC", baglan);
+                }
+                
                 DataTable dt = new DataTable();//DataSet ds = new DataSet();
                 da.Fill(dt);
 
@@ -31,7 +38,6 @@ namespace YarismaSitesi
                 baglan.Close();
 
             }
-
         }
     }
 }

@@ -2,7 +2,7 @@ body {
     /*background: url(db34d40b271fb59477621550bf73ea0b.jpg);
     background-size: 105%;
     background-repeat: no-repeat;*/
-    background-color: aquamarine
+    background-color: aquamarine;
 }
 
 #header {
@@ -43,6 +43,12 @@ a {
   color: white;
 }
 
+.top-list{
+    text-align:center;
+}
+.top-list a {
+    color: #001b5b;
+}
 a:hover{
     color:crimson;
     background-color: white;

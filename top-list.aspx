@@ -11,24 +11,18 @@
         }
 
         .auto-style3 {
-            text-align: center;
-            height: 21px;
+            height: 23px;
         }
 
-        .auto-style4 {
-            color: black;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style1">
-        <tr>
-            <td class="auto-style3" colspan="4">TOP LİST</td>
-        </tr>
-        <tr>
-            <td colspan="4" class="auto-style2">
-                <a href="top-list.aspx"><span class="auto-style4">Genel Puan Durumu</span></a> | <a href="top-list.aspx?k=Spor"><span class="auto-style4">Spor</span></a> | <a href="top-list.aspx?k=Tarih"><span class="auto-style4">Tarih</span></a> | <a href="top-list.aspx?k=Sanat"><span class="auto-style4">Sanat</span></a> | <a href="soru-gonder.aspx"><span class="auto-style4">Soru Gönder</span></a></td>
-        </tr>
+    <h3 class="auto-style2">TOP LİST</h3>
+    <div class="top-list">
+        <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a>
+        </div>
+    <table border="1" class="auto-style1">
+
         <tr>
             <td>Username</td>
             <td>Points</td>
@@ -45,12 +39,6 @@
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
     </table>
     &nbsp;
-</asp:Content>
+    </asp:Content>
