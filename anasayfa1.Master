@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="anasayfa1.master.cs" Inherits="YarismaSitesi.anasayfa1" %>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Bilgi Yarışması</title>
+    <link rel="stylesheet" href="stil.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div id="header">
+            <table>
+                <tr>
+                    <td>
+                        <a href="anasayfa.aspx">
+                            <img
+                                src="https://www.bilgiyarismasi.com/images/yarisma-logo.jpg"
+                                alt="Logo" class="auto-style1" />
+                        </a>
+
+                    </td>
+                    <td style="width: 250px"></td>
+                    <td>
+                        <asp:Panel ID="pnlGiris" runat="server">
+                            <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" />
+                            <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" />
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlUser" runat="server"> 
+                            <a href="soru-gonder.aspx">
+                                <asp:Label ID="lblKullaniciAdi" Text="" runat="server" ></asp:Label>
+                            </a>
+                            <asp:Button ID="btnCikis" runat="server" Text="Çıkış Yap" Font-Size="Large" OnClick="btnCikis_Click"/>
+                        </asp:Panel>
+                    </td>
+                </tr>
+            </table>
+
+            <br />
+
+            <nav>
+                <a href="anasayfa.aspx">Ana Sayfa</a> | <a href="#">Yarışmaya Başla</a> |
+                <a href="yarisma-kurallari.aspx">Yarışma Kuralları</a> | <a href="#">Top List</a> |
+                <a href="soru-gonder.aspx">Soru Gönder</a>
+            </nav>
+        </div>
+
+        <div id="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
