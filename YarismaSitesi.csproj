@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="anasayfa.aspx" />
-    <Content Include="db34d40b271fb59477621550bf73ea0b.jpg" />
     <Content Include="giris.aspx" />
     <Content Include="kayit.aspx" />
     <Content Include="soru-gonder.aspx" />
