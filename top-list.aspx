@@ -34,7 +34,7 @@
                 <tr>
                     <td><%#Eval("username")%></td>
                     <td><%#Eval("points")%></td>
-                    <td><%#Eval("date")%></td>
+                    <td><%#Eval("dates")%></td>
                     <td><%#Eval("category")%></td>
                 </tr>
             </ItemTemplate>

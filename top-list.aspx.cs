@@ -15,7 +15,7 @@ namespace YarismaSitesi
         SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(IsPostBack == true)) // sayfa yeninlenince-- yüklenince
+            if (!(IsPostBack == true))
             {
                 String category = Request.QueryString["k"];
 
@@ -23,14 +23,14 @@ namespace YarismaSitesi
                 baglan.Open();
                 if (category == null)
                 {
-                    da = new SqlDataAdapter("select * from pointsList ORDER BY points DESC", baglan);
+                    da = new SqlDataAdapter("select * from pointsList ORDER BY points DESC, dates ASC", baglan);
                 }
                 else
                 {
-                    da = new SqlDataAdapter("select * from pointsList where category='" + category + "' ORDER BY points DESC", baglan);
+                    da = new SqlDataAdapter("select * from pointsList where category='" + category + "' ORDER BY points DESC, dates ASC", baglan);
                 }
                 
-                DataTable dt = new DataTable();//DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 Repeater1.DataSource = dt;
