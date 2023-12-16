@@ -26,15 +26,25 @@ namespace YarismaSitesi
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            baglan.Open();
-            SqlCommand cmd = new SqlCommand("insert into users(mail,username,password,task) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','user')", baglan);
+            if (string.IsNullOrEmpty(TextBox1.Text) || string.IsNullOrEmpty(TextBox2.Text) || string.IsNullOrEmpty(TextBox3.Text))
+            {
+                Label1.Text = "Lütfen tüm alanları doldurun.";
+                Label1.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                // TextBox'lar boş değilse, veritabanına ekleme işlemini gerçekleştir
+                baglan.Open();
+                SqlCommand cmd = new SqlCommand("insert into users(mail,username,password,task) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','user')", baglan);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            Label1.Text = "Kayıt Başarılı";
-            Label1.BackColor = System.Drawing.Color.ForestGreen;
-            
-            baglan.Close();
+                Label1.Text = "Kayıt Başarılı";
+                Label1.BackColor = System.Drawing.Color.ForestGreen;
+                TextBox1.Text = "";
+                TextBox2.Text = "";
+                baglan.Close();
+            }
 
         }
 
