@@ -90,6 +90,7 @@
             <td class="auto-style3">:</td>
             <td class="auto-style3">
                 <asp:DropDownList ID="DropDownList1" runat="server">
+                    <asp:ListItem>Seçiniz</asp:ListItem>
                     <asp:ListItem>Spor</asp:ListItem>
                     <asp:ListItem>Tarih</asp:ListItem>
                     <asp:ListItem>Bilim</asp:ListItem>
