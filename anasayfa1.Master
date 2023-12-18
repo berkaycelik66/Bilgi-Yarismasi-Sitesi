@@ -31,7 +31,8 @@
                         </asp:Panel>
 
                         <asp:Panel ID="pnlUser" runat="server"> 
-                            <a href="soru-gonder.aspx">
+                            <a href='<%= ResolveUrl("kullanici.aspx?uname=" + Session["username"]) %>'>
+                                
                                 <asp:Label ID="lblKullaniciAdi" Text="" runat="server" ></asp:Label>
                             </a>
                             <asp:Button ID="btnCikis" runat="server" Text="Çıkış Yap" Font-Size="Large" OnClick="btnCikis_Click"/>

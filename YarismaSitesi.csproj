@@ -70,6 +70,7 @@
     <Content Include="anasayfa.aspx" />
     <Content Include="giris.aspx" />
     <Content Include="kayit.aspx" />
+    <Content Include="kullanici.aspx" />
     <Content Include="soru-gonder.aspx" />
     <Content Include="stil.css" />
     <Content Include="top-list.aspx" />
@@ -104,6 +105,13 @@
     </Compile>
     <Compile Include="kayit.aspx.designer.cs">
       <DependentUpon>kayit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kullanici.aspx.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kullanici.aspx.designer.cs">
+      <DependentUpon>kullanici.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="soru-gonder.aspx.cs">
