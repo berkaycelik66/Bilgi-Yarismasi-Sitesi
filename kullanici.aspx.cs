@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace YarismaSitesi
 {
@@ -18,17 +19,18 @@ namespace YarismaSitesi
 
             object user = Session["username"];
             String username = Request.QueryString["uname"];
+            Label1.Text = username + "'nin Profili";
 
             if (username == user.ToString())
             {
-                Label1.Text = username + "'nin Profili";
+                pnlQuestions.Visible = true;
             }
             else
             {
-                Response.Redirect("anasayfa.aspx");
+                pnlQuestions.Visible = false;
             }
-            baglan.Open();
 
+            baglan.Open();
 
             /*Kullanıcının Puanları*/
             SqlDataAdapter da = new SqlDataAdapter("select * from pointsList where username='"+username+ "' ORDER BY dates DESC", baglan);

@@ -5,6 +5,7 @@
         .auto-style1 {
             width: 100%;
         }
+
         .auto-style2 {
             font-size: x-large;
         }
@@ -31,7 +32,14 @@
                     <td><%#Eval("points")%></td>
                     <td><%#Eval("dates")%></td>
                     <td><%#Eval("category")%></td>
-                    <td><a href="puan-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
+
+                    <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
+                    <td <%# Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
+                        <a id="soru_sil"
+                            href="puan-sil.aspx?id=<%#Eval("id")%>">Sil
+                        </a>
+                    </td>
+
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
@@ -39,24 +47,29 @@
 
     <br />
     <br />
-    <table class="auto-style1 top-list" border="1">
-        <tr>
-            <td>Eklenen Sorular</td>
-            <td>Doğru Cevap</td>
-            <td>Onay</td>
-        </tr>
 
-        <asp:Repeater ID="Repeater2" runat="server">
-            <ItemTemplate>
-                <tr>
-                    <td><%#Eval("question")%></td>
-                    <td><%#Eval("true_answer")%></td>
-                    <td><%#Eval("state")%></td>
-                    <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
-                    <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
-                </tr>
-            </ItemTemplate>
-        </asp:Repeater>
+    <asp:Panel ID="pnlQuestions" runat="server">
 
-    </table>
+        <table class="auto-style1 top-list" border="1">
+            <tr>
+                <td>Eklenen Sorular</td>
+                <td>Doğru Cevap</td>
+                <td>Onay</td>
+            </tr>
+
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                    <tr>
+                        <td><%#Eval("question")%></td>
+                        <td><%#Eval("true_answer")%></td>
+                        <td><%#Eval("state")%></td>
+                        <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
+                        <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
+
+        </table>
+
+    </asp:Panel>
 </asp:Content>
