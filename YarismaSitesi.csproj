@@ -72,6 +72,7 @@
     <Content Include="kayit.aspx" />
     <Content Include="kullanici.aspx" />
     <Content Include="soru-gonder.aspx" />
+    <Content Include="soru-sil.aspx" />
     <Content Include="stil.css" />
     <Content Include="top-list.aspx" />
     <Content Include="Web.config" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="soru-gonder.aspx.designer.cs">
       <DependentUpon>soru-gonder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soru-sil.aspx.cs">
+      <DependentUpon>soru-sil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soru-sil.aspx.designer.cs">
+      <DependentUpon>soru-sil.aspx</DependentUpon>
     </Compile>
     <Compile Include="top-list.aspx.cs">
       <DependentUpon>top-list.aspx</DependentUpon>
