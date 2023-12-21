@@ -71,6 +71,7 @@
     <Content Include="giris.aspx" />
     <Content Include="kayit.aspx" />
     <Content Include="kullanici.aspx" />
+    <Content Include="soru-duzenle.aspx" />
     <Content Include="soru-gonder.aspx" />
     <Content Include="soru-sil.aspx" />
     <Content Include="stil.css" />
@@ -115,6 +116,13 @@
       <DependentUpon>kullanici.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="soru-duzenle.aspx.cs">
+      <DependentUpon>soru-duzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soru-duzenle.aspx.designer.cs">
+      <DependentUpon>soru-duzenle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="soru-gonder.aspx.cs">
       <DependentUpon>soru-gonder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
