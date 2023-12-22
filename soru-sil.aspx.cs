@@ -34,20 +34,19 @@ namespace YarismaSitesi
                         SqlCommand cmd = new SqlCommand("delete from questions where id='" + id + "'", baglan);
                         cmd.ExecuteNonQuery();
                         baglan.Close();
-                        Response.Redirect("kullanici.aspx?uname=" + user + "&sil=ok");
+                        Response.Redirect("kullanici.aspx?uname=" + user + "&SoruSil=ok");
                     }
                     else
                     {
                         baglan.Close();
-                        Response.Redirect("kullanici.aspx?uname= " + user + "&sil=hata");
+                        Response.Redirect("kullanici.aspx?uname= " + user + "&SoruSil=hata");
                         
                     }
                 }
             }
             else
             {
-                Label1.BackColor = System.Drawing.Color.Red;
-                Label1.Text = "Geçersiz soru.";  
+                Response.Redirect("anasayfa.aspx");
             }
         }
     }

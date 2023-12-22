@@ -46,6 +46,10 @@ namespace YarismaSitesi
                         }
                     }
                 }
+                else
+                {
+                    Response.Redirect("anasayfa.aspx");
+                }
             }
         }
 

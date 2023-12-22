@@ -44,7 +44,7 @@
                     <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
                     <td <%# Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
                         <a id="soru_sil"
-                            href="puan-sil.aspx?id=<%#Eval("id")%>">Sil
+                            href="puan-sil.aspx?id=<%#Eval("id")%>">YarışmaSil
                         </a>
                     </td>
                 </tr>
@@ -56,13 +56,13 @@
     <tr>
         <td colspan="3">
             <%
-                if (Request.QueryString["sil"] == "ok")
+                if (Request.QueryString["YarışmaSil"] == "ok")
                 {%>
             <div class="ok">
                 <center>Yarışma sonucunuz Başarıyla Silindi</center>
             </div>
             <% }
-                else if (Request.QueryString["sil"] == "hata")
+                else if (Request.QueryString["YarışmaSil"] == "hata")
                 {
             %>
             <div class="hata">
@@ -93,8 +93,8 @@
                         <td><%#Eval("question")%></td>
                         <td><%#Eval("true_answer")%></td>
                         <td>    <%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
-                        <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
-                        <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
+                        <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">SoruDüzenle</a></td>
+                        <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">SoruSil</a></td>
                     </tr>
 
 
@@ -107,13 +107,13 @@
             <tr>
                 <td colspan="3">
                     <%
-                        if (Request.QueryString["sil"] == "ok")
+                        if (Request.QueryString["SoruSil"] == "ok")
                         {%>
                     <div class="ok">
                         <center>Sorunuz Başarıyla Silindi</center>
                     </div>
                     <% }
-                        else if (Request.QueryString["sil"] == "hata")
+                        else if (Request.QueryString["SoruSil"] == "hata")
                         {
                     %>
                     <div class="hata">
