@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,7 +22,7 @@ namespace YarismaSitesi
                     baglan.Open();
                     string id = Request.QueryString["id"];
                     object user = Session["username"];
-                    SqlDataAdapter da = new SqlDataAdapter("select * from questions where id=" + id + "", baglan);
+                    SqlDataAdapter da = new SqlDataAdapter("select * from questions where id='" + id + "'", baglan);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
                     if (dt.Rows.Count > 0)

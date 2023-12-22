@@ -52,7 +52,27 @@
             </ItemTemplate>
         </asp:Repeater>
     </table>
+    <table class="auto-style1 top-list">
+    <tr>
+        <td colspan="3">
+            <%
+                if (Request.QueryString["sil"] == "ok")
+                {%>
+            <div class="ok">
+                <center>Yarışma sonucunuz Başarıyla Silindi</center>
+            </div>
+            <% }
+                else if (Request.QueryString["sil"] == "hata")
+                {
+            %>
+            <div class="hata">
+                <center>Yarışma sonucu Size Ait Değil</center>
+            </div>
+            <% } %>
+        </td>
+    </tr>
 
+</table>
     <br />
     <br />
 
