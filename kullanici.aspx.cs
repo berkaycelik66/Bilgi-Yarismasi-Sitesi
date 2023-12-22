@@ -40,7 +40,7 @@ namespace YarismaSitesi
             Repeater1.DataBind();
 
             /*Kullanıcının Eklediği Sorular*/
-            SqlDataAdapter da2 = new SqlDataAdapter("select * from questions where sender='"+ username+ "'", baglan);
+            SqlDataAdapter da2 = new SqlDataAdapter("select * from questions where sender='"+ username+ "' ORDER BY id DESC", baglan);
             DataTable dt2 = new DataTable();
             da2.Fill(dt2);
             Repeater2.DataSource = dt2;

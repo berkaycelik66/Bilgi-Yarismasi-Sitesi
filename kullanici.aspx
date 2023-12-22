@@ -60,6 +60,7 @@
 
         <table class="auto-style1 top-list" border="1">
             <tr>
+                <td>Kategori</td>
                 <td>Eklenen Sorular</td>
                 <td>Doğru Cevap</td>
                 <td>Onay</td>
@@ -68,9 +69,10 @@
             <asp:Repeater ID="Repeater2" runat="server">
                 <ItemTemplate>
                     <tr>
+                        <td><%#Eval("category")%></td>
                         <td><%#Eval("question")%></td>
                         <td><%#Eval("true_answer")%></td>
-                        <td><%#Eval("state")%></td>
+                        <td>    <%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
                         <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
                         <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                     </tr>
