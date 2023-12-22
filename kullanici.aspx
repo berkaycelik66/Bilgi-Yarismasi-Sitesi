@@ -9,6 +9,14 @@
         .auto-style2 {
             font-size: x-large;
         }
+
+        .ok {
+            background-color: forestgreen;
+        }
+
+        .hata {
+            background-color: lightcoral;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -39,8 +47,8 @@
                             href="puan-sil.aspx?id=<%#Eval("id")%>">Sil
                         </a>
                     </td>
-
                 </tr>
+
             </ItemTemplate>
         </asp:Repeater>
     </table>
@@ -66,8 +74,32 @@
                         <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
                         <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                     </tr>
+
+
                 </ItemTemplate>
             </asp:Repeater>
+
+        </table>
+
+        <table class="auto-style1 top-list">
+            <tr>
+                <td colspan="3">
+                    <%
+                        if (Request.QueryString["sil"] == "ok")
+                        {%>
+                    <div class="ok">
+                        <center>Sorunuz Başarıyla Silindi</center>
+                    </div>
+                    <% }
+                        else if (Request.QueryString["sil"] == "hata")
+                        {
+                    %>
+                    <div class="hata">
+                        <center>Soru Size Ait Değil</center>
+                    </div>
+                    <% } %>
+                </td>
+            </tr>
 
         </table>
 

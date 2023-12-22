@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -68,7 +68,7 @@ namespace YarismaSitesi
                     TextBox3.Text = TextBox3.Text.Replace("'", "’");
                     TextBox4.Text = TextBox4.Text.Replace("'", "’");
                     TextBox5.Text = TextBox5.Text.Replace("'", "’");                   
-                    SqlCommand cmd = new SqlCommand("update questions set question='" + TextBox1.Text + "', true_answer='" + TextBox2.Text + "', false_answer1='" + TextBox3.Text + "', false_answer2='" + TextBox4.Text + "', false_answer3='" + TextBox5.Text + "', category='" + DropDownList1.Text + "', state='false' where id=" + id +"", baglan);
+                    SqlCommand cmd = new SqlCommand("update questions set question='" + TextBox1.Text + "', true_answer='" + TextBox2.Text + "', false_answer1='" + TextBox3.Text + "', false_answer2='" + TextBox4.Text + "', false_answer3='" + TextBox5.Text + "', category='" + DropDownList1.Text + "', state='false' where id='" + id +"'", baglan);
                     cmd.ExecuteNonQuery();
                     baglan.Close();
                     Label1.Text = "Soru Gönderildi. Onaylandıktan sonra Yarışmaya Eklenecektir.";

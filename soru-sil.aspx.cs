@@ -12,8 +12,8 @@ namespace YarismaSitesi
 {
 	public partial class soru_sil : System.Web.UI.Page
 	{
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -33,17 +33,14 @@ namespace YarismaSitesi
                         
                         SqlCommand cmd = new SqlCommand("delete from questions where id=" + id + "", baglan);
                         cmd.ExecuteNonQuery();
-                        Label1.BackColor = System.Drawing.Color.Green;
-                        Label1.Text = "Sorunuz Silindi.";
                         baglan.Close();
-                        Response.Redirect("kullanici.aspx?uname=" + user + "");
+                        Response.Redirect("kullanici.aspx?uname=" + user + "&sil=ok");
                     }
                     else
                     {
-                        Label1.BackColor = System.Drawing.Color.Red;
-                        Label1.Text = "Soru Size ait değil.";
                         baglan.Close();
-
+                        Response.Redirect("kullanici.aspx?uname= " + user + "&sil=hata");
+                        
                     }
                 }
             }
