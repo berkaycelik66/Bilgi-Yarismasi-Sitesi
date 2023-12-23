@@ -42,37 +42,40 @@
                     <td><%#Eval("category")%></td>
 
                     <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
-                    <td <%# Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
-                        <a id="soru_sil"
-                            href="puan-sil.aspx?id=<%#Eval("id")%>">YarışmaSil
-                        </a>
                     </td>
+                    <%
+                        if (Session["username"] != null)
+                        {%>
+                    <td <%#Session["username"] != null && Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
+                        <a id="soru_sil" href="puan-sil.aspx?id=<%#Eval("id")%>">Sil</a>
+                    </td>
+                    <% }%>
                 </tr>
 
             </ItemTemplate>
         </asp:Repeater>
     </table>
     <table class="auto-style1 top-list">
-    <tr>
-        <td colspan="3">
-            <%
-                if (Request.QueryString["YarışmaSil"] == "ok")
-                {%>
-            <div class="ok">
-                <center>Yarışma sonucunuz Başarıyla Silindi</center>
-            </div>
-            <% }
-                else if (Request.QueryString["YarışmaSil"] == "hata")
-                {
-            %>
-            <div class="hata">
-                <center>Yarışma sonucu Size Ait Değil</center>
-            </div>
-            <% } %>
-        </td>
-    </tr>
+        <tr>
+            <td colspan="3">
+                <%
+                    if (Request.QueryString["YarışmaSil"] == "ok")
+                    {%>
+                <div class="ok">
+                    <center>Yarışma sonucunuz Başarıyla Silindi</center>
+                </div>
+                <% }
+                    else if (Request.QueryString["YarışmaSil"] == "hata")
+                    {
+                %>
+                <div class="hata">
+                    <center>Yarışma sonucu Size Ait Değil</center>
+                </div>
+                <% } %>
+            </td>
+        </tr>
 
-</table>
+    </table>
     <br />
     <br />
 
@@ -92,9 +95,9 @@
                         <td><%#Eval("category")%></td>
                         <td><%#Eval("question")%></td>
                         <td><%#Eval("true_answer")%></td>
-                        <td>    <%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
-                        <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">SoruDüzenle</a></td>
-                        <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">SoruSil</a></td>
+                        <td><%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
+                        <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
+                        <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                     </tr>
 
 
