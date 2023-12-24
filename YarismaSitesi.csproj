@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.aspx" />
     <Content Include="anasayfa.aspx" />
     <Content Include="giris.aspx" />
     <Content Include="kayit.aspx" />
@@ -81,6 +82,13 @@
     <Content Include="yarisma-kurallari.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin.aspx.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin.aspx.designer.cs">
+      <DependentUpon>admin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="anasayfa.aspx.cs">
       <DependentUpon>anasayfa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
