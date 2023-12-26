@@ -1,34 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/anasayfa1.Master" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="YarismaSitesi.admin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .paginationPanel {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-            .paginationPanel a {
-                color: black;
-                float: left;
-                padding: 8px 16px;
-                text-decoration: none;
-                transition: background-color .3s;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                margin: 0 4px;
-            }
-
-                .paginationPanel a.active {
-                    background-color: #4CAF50;
-                }
-
-                .paginationPanel a:hover:not(.active) {
-                    background-color: #ddd;
-                }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 

@@ -30,12 +30,17 @@
                             <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" />
                         </asp:Panel>
 
-                        <asp:Panel ID="pnlUser" runat="server"> 
-                            <a href='<%= ResolveUrl("kullanici.aspx?uname=" + Session["username"]) %>'>
-                                
-                                <asp:Label ID="lblKullaniciAdi" Text="" runat="server" ></asp:Label>
-                            </a>
-                            <asp:Button ID="btnCikis" runat="server" Text="Çıkış Yap" Font-Size="Large" OnClick="btnCikis_Click"/>
+                        <asp:Panel ID="pnlUser" runat="server">
+                            <div class="dropdown">
+                                <button class="dropbtn">
+                                    <asp:Label ID="lblKullaniciAdi" Text="" runat="server"></asp:Label><i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href='<%= ResolveUrl("kullanici.aspx?uname=" + Session["username"]) %>'>Profilim</a>
+                                    <a href="#">Bilgilerimi Güncelle</a>
+                                    <a href="cikis.aspx">Çıkış Yap</a>
+                                </div>
+                            </div>
                         </asp:Panel>
                     </td>
                 </tr>

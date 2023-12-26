@@ -36,11 +36,5 @@ namespace YarismaSitesi
         {
             Response.Redirect("kayit.aspx");
         }
-
-        protected void btnCikis_Click(object sender, EventArgs e)
-        {
-            Session.Abandon();
-            Response.Redirect("anasayfa.aspx");
-        }
     }
 }
