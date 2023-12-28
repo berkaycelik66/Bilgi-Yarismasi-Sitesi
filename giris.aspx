@@ -74,8 +74,8 @@
 
             <br />
 
-            <nav>
-                <a href="anasayfa.aspx">Ana Sayfa</a> | <a href="#">Yarışmaya Başla</a> |
+            <nav class="header-link">
+                <a href="anasayfa.aspx">Ana Sayfa</a> | <a href="yarismaya-basla.aspx">Yarışmaya Başla</a> |
                 <a href="yarisma-kurallari.aspx">Yarışma Kuralları</a> | <a href="top-list.aspx">Top List</a> |
                 <a href="soru-gonder.aspx">Soru Gönder</a>
             </nav>

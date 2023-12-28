@@ -33,12 +33,12 @@ table {
   margin-top: 15px;
 }
 
-nav {
+.header-link {
   text-align: center;
   color: #fff;
 }
 
-a {
+.header-link a {
   color: white;
   text-decoration:none;
 }

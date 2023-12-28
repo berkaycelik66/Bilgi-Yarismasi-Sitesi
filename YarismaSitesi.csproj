@@ -81,6 +81,8 @@
     <Content Include="top-list.aspx" />
     <Content Include="Web.config" />
     <Content Include="yarisma-kurallari.aspx" />
+    <Content Include="yarisma.aspx" />
+    <Content Include="yarismaya-basla.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="admin.aspx.cs">
@@ -174,6 +176,20 @@
     </Compile>
     <Compile Include="yarisma-kurallari.aspx.designer.cs">
       <DependentUpon>yarisma-kurallari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yarisma.aspx.cs">
+      <DependentUpon>yarisma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yarisma.aspx.designer.cs">
+      <DependentUpon>yarisma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="yarismaya-basla.aspx.cs">
+      <DependentUpon>yarismaya-basla.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yarismaya-basla.aspx.designer.cs">
+      <DependentUpon>yarismaya-basla.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

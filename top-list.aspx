@@ -13,14 +13,13 @@
         .auto-style3 {
             height: 23px;
         }
-
-        </style>
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3 class="auto-style2">TOP LİST</h3>
     <div class="top-list">
         <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a>
-        </div>
+    </div>
     <table border="1" class="auto-style1">
 
         <tr>
@@ -29,10 +28,14 @@
             <td>Date</td>
             <td>Category</td>
         </tr>
-        <asp:Repeater ID="Repeater1" runat="server">
+        <asp:Repeater ID="Repeater1" runat="server" >
             <ItemTemplate>
                 <tr>
-                    <td><%#Eval("username")%></td>
+                    <td>
+                        <a href='<%# "kullanici.aspx?uname=" + Eval("username") %>'>
+                            <%#Eval("username")%>
+                        </a>
+                    </td>
                     <td><%#Eval("points")%></td>
                     <td><%#Eval("dates")%></td>
                     <td><%#Eval("category")%></td>
@@ -41,4 +44,4 @@
         </asp:Repeater>
     </table>
     &nbsp;
-    </asp:Content>
+</asp:Content>
