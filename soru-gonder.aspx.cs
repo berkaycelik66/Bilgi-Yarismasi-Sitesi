@@ -39,7 +39,17 @@ namespace YarismaSitesi
                     TextBox4.Text = TextBox4.Text.Replace("'", "’");
                     TextBox5.Text = TextBox5.Text.Replace("'", "’");
 
-                    SqlCommand cmd = new SqlCommand("insert into questions(question,true_answer,false_answer1,false_answer2,false_answer3,category,sender,state) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + DropDownList1.Text + "','" + user.ToString() + "','false')", baglan);
+                    String senderUser;
+                    if (Session["task"].Equals("admin"))
+                    {
+                        senderUser = user.ToString() + "@admin";
+                    }
+                    else
+                    {
+                        senderUser = user.ToString();
+                    }
+
+                    SqlCommand cmd = new SqlCommand("insert into questions(question,true_answer,false_answer1,false_answer2,false_answer3,category,sender,state) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "','" + TextBox5.Text + "','" + DropDownList1.Text + "','" + senderUser + "','false')", baglan);
 
                     cmd.ExecuteNonQuery();
                     Label1.Text = "Soru Gönderildi. Onaylandıktan sonra Yarışmaya Eklenecektir.";
@@ -49,7 +59,7 @@ namespace YarismaSitesi
                     TextBox3.Text = "";
                     TextBox4.Text = "";
                     TextBox5.Text = "";
-                }    
+                }
             }
             else
             {

@@ -70,6 +70,7 @@ namespace YarismaSitesi
         }
         private void InitializeQuestion()
         {
+            Label4.Text = "";
 
             if (currentQuestionIndex < questionBatch.Count)
             {
@@ -98,7 +99,7 @@ namespace YarismaSitesi
                 Button4.Text = answerOptions[3];
                 Button5.Visible = false;
 
-                if (!currentQuestion.Sender.Equals("admin"))
+                if (!currentQuestion.Sender.Contains("@admin"))
                 {
                     Label4.Text = "Gönderen: "+ currentQuestion.Sender;
                 }
