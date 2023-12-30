@@ -12,8 +12,8 @@ namespace YarismaSitesi
 {
     public partial class yarisma : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         static List<Question> questionBatch;
         static int currentQuestionIndex;
@@ -33,16 +33,32 @@ namespace YarismaSitesi
         private void LoadQuestionBatch()
         {
             string category = Request.QueryString["k"];
+            object user = Session["username"];
             baglan.Open();
 
             SqlCommand cmd;
             if (category == null)
             {
-                cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE state='True' ORDER BY NEWID()", baglan);
+                if (user != null)
+                {
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE state='True' AND NOT (sender = '" + user + "') ORDER BY NEWID()", baglan);
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE state='True' ORDER BY NEWID()", baglan);
+                }
+
             }
             else
             {
-                cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE category='" + category + "' AND state='True' ORDER BY NEWID()", baglan);
+                if (user != null)
+                {
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE category='" + category + "' AND state='True' AND NOT (sender = '" + user + "') ORDER BY NEWID()", baglan);
+                }
+                else
+                {
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE category='" + category + "' AND state='True' ORDER BY NEWID()", baglan);
+                }
             }
 
             SqlDataReader dr = cmd.ExecuteReader();
