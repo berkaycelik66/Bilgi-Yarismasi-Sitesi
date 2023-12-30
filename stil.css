@@ -28,29 +28,30 @@ body {
 }
 
 table {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
 }
 
 .header-link {
-  text-align: center;
-  color: #fff;
+    text-align: center;
+    color: #fff;
 }
 
-.header-link a {
-  color: white;
-  text-decoration:none;
+    .header-link a {
+        color: white;
+    }
+
+.top-list {
+    text-align: center;
 }
 
-.top-list{
-    text-align:center;
-}
-.top-list a {
-    color: #001b5b;
-}
-a:hover{
-    color:crimson;
+    .top-list a {
+        color: #001b5b;
+    }
+
+a:hover {
+    color: crimson;
     background-color: white;
 }
 
@@ -59,7 +60,9 @@ a:hover{
 }
 
 
-
+a {
+    text-decoration: none;
+}
 
 
 /*Dropdown in Header*/
@@ -84,7 +87,7 @@ a:hover{
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
-    font-size:15px;
+    font-size: 15px;
 }
 
     .dropdown-content a {
@@ -130,3 +133,17 @@ a:hover{
         .paginationPanel a:hover:not(.active) {
             background-color: #ddd;
         }
+
+.kopyalanamaz {
+    user-select: none;
+}
+
+.yarisma-style td {
+    width: 575px;
+}
+
+.yarisma-style-button {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}

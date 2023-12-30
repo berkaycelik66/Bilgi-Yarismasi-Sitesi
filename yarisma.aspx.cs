@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,9 +21,14 @@ namespace YarismaSitesi
         {
             if (!IsPostBack)
             {
+                Button5.Visible = false;
                 LoadQuestionBatch();
                 InitializeQuestion();
             }
+            Button1.BackColor = default(Color);
+            Button2.BackColor = default(Color);
+            Button3.BackColor = default(Color);
+            Button4.BackColor = default(Color);
         }
         private void LoadQuestionBatch()
         {
@@ -52,6 +59,7 @@ namespace YarismaSitesi
                     FalseAnswer1 = dr["false_answer1"].ToString(),
                     FalseAnswer2 = dr["false_answer2"].ToString(),
                     FalseAnswer3 = dr["false_answer3"].ToString(),
+                    Sender = dr["sender"].ToString()
                 };
 
                 questionBatch.Add(question);
@@ -62,8 +70,10 @@ namespace YarismaSitesi
         }
         private void InitializeQuestion()
         {
+
             if (currentQuestionIndex < questionBatch.Count)
             {
+                
                 Question currentQuestion = questionBatch[currentQuestionIndex];
 
                 Label3.Text = currentQuestion.QuestionText;
@@ -86,6 +96,12 @@ namespace YarismaSitesi
                 Button2.Text = answerOptions[1];
                 Button3.Text = answerOptions[2];
                 Button4.Text = answerOptions[3];
+                Button5.Visible = false;
+
+                if (!currentQuestion.Sender.Equals("admin"))
+                {
+                    Label4.Text = "Gönderen: "+ currentQuestion.Sender;
+                }
             }
             else
             {
@@ -95,9 +111,13 @@ namespace YarismaSitesi
                 Button2.Visible = false;
                 Button3.Visible = false;
                 Button4.Visible = false;
+                Button5.Visible = false;
+                questionBatch.Clear();
+                currentQuestionIndex = questionBatch.Count(); 
             }
         }
 
+        /*Butonları Rastgele Şıklara Atıyor.*/
         private void ShuffleList<T>(List<T> list)
         {
             Random random = new Random();
@@ -118,22 +138,57 @@ namespace YarismaSitesi
             Button clickedButton = (Button)sender;
             string selectedAnswer = clickedButton.Text;
             string correctAnswer = Session["CorrectAnswer"].ToString();
+            Button beforeAnswer = GetCorrectButton();
 
             if (string.Equals(selectedAnswer, correctAnswer, StringComparison.OrdinalIgnoreCase))
             {
                 // User selected the correct answer, move to the next question
+                clickedButton.BackColor = System.Drawing.Color.ForestGreen;
                 currentQuestionIndex++;
-                InitializeQuestion();
+                Button5.Visible = true;
             }
             else
             {
+                beforeAnswer.BackColor = Color.ForestGreen;
+                clickedButton.BackColor = System.Drawing.Color.Red;
+                
                 // Add logic for incorrect answer if needed
                 Label3.Text = "Yanlış Cevap Verdiniz. Yarışma Sonlanmıştır.";
-                Button1.Visible = false;
-                Button2.Visible = false;
-                Button3.Visible = false;
-                Button4.Visible = false;
+                Button1.OnClientClick = "return false";
+                Button2.OnClientClick = "return false";
+                Button3.OnClientClick = "return false";
+                Button4.OnClientClick = "return false";
+                questionBatch.Clear();
+                currentQuestionIndex = questionBatch.Count();
             }
+        }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            InitializeQuestion();
+        }
+
+        private Button GetCorrectButton()
+        {
+            // Determine which button has the correct answer
+            if (string.Equals(Button1.Text, Session["correctAnswer"].ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                return Button1;
+            }
+            else if (string.Equals(Button2.Text, Session["correctAnswer"].ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                return Button2;
+            }
+            else if (string.Equals(Button3.Text, Session["correctAnswer"].ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                return Button3;
+            }
+            else if (string.Equals(Button4.Text, Session["correctAnswer"].ToString(), StringComparison.OrdinalIgnoreCase))
+            {
+                return Button4;
+            }
+
+            return null; // Return null if no correct button is found
         }
     }
 
@@ -145,5 +200,7 @@ namespace YarismaSitesi
         public string FalseAnswer1 { get; set; }
         public string FalseAnswer2 { get; set; }
         public string FalseAnswer3 { get; set; }
+
+        public string Sender { get; set;}
     }
 }
