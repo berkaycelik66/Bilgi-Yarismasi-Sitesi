@@ -76,6 +76,7 @@
     <Content Include="puan-sil.aspx" />
     <Content Include="soru-duzenle.aspx" />
     <Content Include="soru-gonder.aspx" />
+    <Content Include="soru-onay.aspx" />
     <Content Include="soru-sil.aspx" />
     <Content Include="stil.css" />
     <Content Include="top-list.aspx" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="soru-gonder.aspx.designer.cs">
       <DependentUpon>soru-gonder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soru-onay.aspx.cs">
+      <DependentUpon>soru-onay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soru-onay.aspx.designer.cs">
+      <DependentUpon>soru-onay.aspx</DependentUpon>
     </Compile>
     <Compile Include="soru-sil.aspx.cs">
       <DependentUpon>soru-sil.aspx</DependentUpon>

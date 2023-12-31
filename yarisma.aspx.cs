@@ -34,6 +34,16 @@ namespace YarismaSitesi
         {
             string category = Request.QueryString["k"];
             object user = Session["username"];
+            object task = Session["task"];
+            object uname = new object();
+            if (task != null && task.ToString() == "admin")
+            {
+                uname = user + "@admin";
+            }
+            else if (task !=null)
+            {
+                uname = user;
+            }
             baglan.Open();
 
             SqlCommand cmd;
@@ -41,7 +51,7 @@ namespace YarismaSitesi
             {
                 if (user != null)
                 {
-                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE state='True' AND NOT (sender = '" + user + "') ORDER BY NEWID()", baglan);
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE state='True' AND NOT (sender = '" + uname + "') ORDER BY NEWID()", baglan);
                 }
                 else
                 {
@@ -53,7 +63,7 @@ namespace YarismaSitesi
             {
                 if (user != null)
                 {
-                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE category='" + category + "' AND state='True' AND NOT (sender = '" + user + "') ORDER BY NEWID()", baglan);
+                    cmd = new SqlCommand("SELECT TOP 3 * FROM questions WHERE category='" + category + "' AND state='True' AND NOT (sender = '" + uname + "') ORDER BY NEWID()", baglan);
                 }
                 else
                 {
