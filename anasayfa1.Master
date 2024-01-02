@@ -38,6 +38,11 @@
                                 <div class="dropdown-content">
                                     <a href='<%= ResolveUrl("kullanici.aspx?uname=" + Session["username"]) %>'>Profilim</a>
                                     <a href="#">Bilgilerimi Güncelle</a>
+
+                                    <%if (Session["task"].Equals("admin"))
+                                    { %>
+                                        <a href='admin.aspx'>Admin Panel</a>
+                                    <%} %>
                                     <a href="cikis.aspx">Çıkış Yap</a>
                                 </div>
                             </div>

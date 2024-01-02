@@ -42,7 +42,6 @@
                     <td><%#Eval("category")%></td>
 
                     <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
-                    </td>
                     <%
                         if (Session["username"] != null)
                         {%>
