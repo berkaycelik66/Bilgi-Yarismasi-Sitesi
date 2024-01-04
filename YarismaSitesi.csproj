@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin-kullanicilar.aspx" />
+    <Content Include="admin-sorular.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="anasayfa.aspx" />
     <Content Include="cikis.aspx" />
@@ -88,6 +90,20 @@
     <Content Include="yarismaya-basla.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin-kullanicilar.aspx.cs">
+      <DependentUpon>admin-kullanicilar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-kullanicilar.aspx.designer.cs">
+      <DependentUpon>admin-kullanicilar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin-sorular.aspx.cs">
+      <DependentUpon>admin-sorular.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin-sorular.aspx.designer.cs">
+      <DependentUpon>admin-sorular.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin.aspx.cs">
       <DependentUpon>admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
