@@ -10,43 +10,64 @@ using System.Web.UI.WebControls;
 
 namespace YarismaSitesi
 {
-	public partial class soru_sil : System.Web.UI.Page
-	{
+    public partial class soru_sil : System.Web.UI.Page
+    {
         SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (Request.QueryString["id"] != null)
             {
                 baglan.Open();
                 string id = Request.QueryString["id"];
                 object user = Session["username"];
-                SqlDataAdapter da = new SqlDataAdapter ("select * from questions where id='"+id+"'",baglan);
+                SqlDataAdapter da = new SqlDataAdapter("select * from questions where id='" + id + "'", baglan);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
-                    object senderValue = dt.Rows[0]["sender"];  
-                    if (user.ToString() == senderValue.ToString())
+                    object senderValue = dt.Rows[0]["sender"];
+                    if (Session["task"].Equals("admin"))
                     {
-                        
-                        SqlCommand cmd = new SqlCommand("delete from questions where id='" + id + "'", baglan);
-                        cmd.ExecuteNonQuery();
-                        baglan.Close();
-                        Response.Redirect("kullanici.aspx?uname=" + user + "&SoruSil=ok");
+                        string userValue = user.ToString() + "@admin";
+                        if (userValue == senderValue.ToString())
+                        {
+
+                            SqlCommand cmd = new SqlCommand("delete from questions where id='" + id + "'", baglan);
+                            cmd.ExecuteNonQuery();
+                            baglan.Close();
+                            Response.Redirect("kullanici.aspx?uname=" + user + "&SoruSil=ok");
+                        }
+                        else
+                        {
+                            baglan.Close();
+                            Response.Redirect("kullanici.aspx?uname= " + user + "&SoruSil=hata");
+
+                        }
                     }
                     else
                     {
-                        baglan.Close();
-                        Response.Redirect("kullanici.aspx?uname= " + user + "&SoruSil=hata");
-                        
+                        if (user.ToString() == senderValue.ToString())
+                        {
+
+                            SqlCommand cmd = new SqlCommand("delete from questions where id='" + id + "'", baglan);
+                            cmd.ExecuteNonQuery();
+                            baglan.Close();
+                            Response.Redirect("kullanici.aspx?uname=" + user + "&SoruSil=ok");
+                        }
+                        else
+                        {
+                            baglan.Close();
+                            Response.Redirect("kullanici.aspx?uname= " + user + "&SoruSil=hata");
+
+                        }
                     }
                 }
-            }
-            else
-            {
-                Response.Redirect("anasayfa.aspx");
+                else
+                {
+                    Response.Redirect("anasayfa.aspx");
+                }
             }
         }
     }

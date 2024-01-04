@@ -24,7 +24,7 @@
                     <td><%#Eval("true_answer")%></td>
                     <td><%#Eval("sender")%></td>
                     <td><%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
-                    <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
+                    <td><a href="soru-sil-admin.aspx?id=<%#Eval("id")%>">Sil</a></td>
                     <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
                     <td><a href="soru-onay.aspx?id=<%#Eval("id")%>">Onayı Değiştir</a></td>
                 </tr>

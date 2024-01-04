@@ -70,6 +70,7 @@
     <Content Include="admin.aspx" />
     <Content Include="anasayfa.aspx" />
     <Content Include="cikis.aspx" />
+    <Content Include="engel.aspx" />
     <Content Include="giris.aspx" />
     <Content Include="kayit.aspx" />
     <Content Include="kullanici.aspx" />
@@ -77,6 +78,7 @@
     <Content Include="soru-duzenle.aspx" />
     <Content Include="soru-gonder.aspx" />
     <Content Include="soru-onay.aspx" />
+    <Content Include="soru-sil-admin.aspx" />
     <Content Include="soru-sil.aspx" />
     <Content Include="stil.css" />
     <Content Include="top-list.aspx" />
@@ -113,6 +115,13 @@
     </Compile>
     <Compile Include="cikis.aspx.designer.cs">
       <DependentUpon>cikis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="engel.aspx.cs">
+      <DependentUpon>engel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="engel.aspx.designer.cs">
+      <DependentUpon>engel.aspx</DependentUpon>
     </Compile>
     <Compile Include="giris.aspx.cs">
       <DependentUpon>giris.aspx</DependentUpon>
@@ -163,6 +172,13 @@
     </Compile>
     <Compile Include="soru-onay.aspx.designer.cs">
       <DependentUpon>soru-onay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="soru-sil-admin.aspx.cs">
+      <DependentUpon>soru-sil-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="soru-sil-admin.aspx.designer.cs">
+      <DependentUpon>soru-sil-admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="soru-sil.aspx.cs">
       <DependentUpon>soru-sil.aspx</DependentUpon>
