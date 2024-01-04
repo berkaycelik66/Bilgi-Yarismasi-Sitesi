@@ -32,22 +32,21 @@ namespace YarismaSitesi
                         SqlCommand cmd = new SqlCommand("update questions set state='true' where id='" + id + "'", baglan);
                         cmd.ExecuteNonQuery();
                         baglan.Close();
-                        Response.Redirect("admin.aspx");
+                        Response.Redirect(Request.UrlReferrer.ToString());
                     }
                     else if (state == true)
                     {
                         SqlCommand cmd = new SqlCommand("update questions set state='false' where id='" + id + "'", baglan);
                         cmd.ExecuteNonQuery();
                         baglan.Close();
-                        Response.Redirect("admin.aspx");
+                        Response.Redirect(Request.UrlReferrer.ToString());
 
                     }
                 }
                 else
                 {
                     baglan.Close();
-                    Response.Redirect("admin.aspx");
-
+                    Response.Redirect(Request.UrlReferrer.ToString());
                 }
             }
             else

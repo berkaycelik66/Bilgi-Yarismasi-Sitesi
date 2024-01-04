@@ -34,7 +34,17 @@ namespace YarismaSitesi
             {
                 Session.Add("username", dr["username"].ToString());
                 Session.Add("task", dr["task"].ToString());
-                Response.Redirect("anasayfa.aspx");
+
+                if (Session["task"].Equals("banned"))
+                {
+                    Label1.BackColor = System.Drawing.Color.Red;
+                    Label1.Text = "Kullanıcı Engellendi";
+                    Session.Abandon();
+                }
+                else
+                {
+                    Response.Redirect("anasayfa.aspx");
+                }
             }
             else
             {

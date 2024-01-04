@@ -23,10 +23,10 @@
                     <td><%#Eval("question")%></td>
                     <td><%#Eval("true_answer")%></td>
                     <td><%#Eval("sender")%></td>
-                    <td><%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>   
+                    <td><%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
                     <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                     <td><a href="soru-duzenle.aspx?id=<%#Eval("id")%>">Düzenle</a></td>
-                    <td><a href="soru-onay.aspx?id=<%#Eval("id")%>">Onayı Değiştir</a></td> 
+                    <td><a href="soru-onay.aspx?id=<%#Eval("id")%>">Onayı Değiştir</a></td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
@@ -50,7 +50,7 @@
                     <td>
                         <%# Eval("task").Equals("banned") ? "<a href='engel.aspx?id=" + Eval("id") + "'>Engeli Kaldır</a>" : "<a href='engel.aspx?id=" + Eval("id") + "'>Engelle</a>" %>
                     </td>
-
+                    <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
