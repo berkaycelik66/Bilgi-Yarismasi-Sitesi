@@ -27,6 +27,18 @@
             text-align: left;
         }
     </style>
+    <script type="text/javascript">
+        // Sayfa yenilendiğinde belirli bir sayfaya yönlendirme
+        window.onload = function() {
+            // Yönlendirilecek URL'yi burada belirtin
+            var yeniURL = "yarismaya-basla.aspx";
+
+            // Yenileme işlemi olduğunda belirtilen sayfaya yönlendirme
+            if (performance.navigation.type === 1) {
+                window.location.href = yeniURL;
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="yarisma-style">
