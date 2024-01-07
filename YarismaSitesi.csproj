@@ -71,6 +71,7 @@
     <Content Include="admin-sorular.aspx" />
     <Content Include="admin.aspx" />
     <Content Include="anasayfa.aspx" />
+    <Content Include="bilgilerimi-guncelle.aspx" />
     <Content Include="cikis.aspx" />
     <Content Include="engel.aspx" />
     <Content Include="giris.aspx" />
@@ -125,6 +126,13 @@
     </Compile>
     <Compile Include="anasayfa1.Master.designer.cs">
       <DependentUpon>anasayfa1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="bilgilerimi-guncelle.aspx.cs">
+      <DependentUpon>bilgilerimi-guncelle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bilgilerimi-guncelle.aspx.designer.cs">
+      <DependentUpon>bilgilerimi-guncelle.aspx</DependentUpon>
     </Compile>
     <Compile Include="cikis.aspx.cs">
       <DependentUpon>cikis.aspx</DependentUpon>

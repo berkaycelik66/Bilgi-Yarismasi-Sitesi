@@ -37,7 +37,7 @@
                                 </button>
                                 <div class="dropdown-content">
                                     <a href='<%= ResolveUrl("kullanici.aspx?uname=" + Session["username"]) %>'>Profilim</a>
-                                    <a href="#">Bilgilerimi Güncelle</a>
+                                    <a href='<%= ResolveUrl("bilgilerimi-guncelle.aspx?id=" + Session["id"]) %>'>Bilgilerimi Güncelle</a>
 
                                     <%if (Session["task"].Equals("admin"))
                                     { %>

@@ -91,7 +91,7 @@
                     <td class="auto-style7">MAİL</td>
                     <td class="auto-style3">:</td>
                     <td class="auto-style10">
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox1" runat="server" TextMode="Email"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class admin_sorular : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         int soruSayfa;
         protected void Page_Load(object sender, EventArgs e)
@@ -100,13 +100,11 @@ namespace YarismaSitesi
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Call the function or perform actions when the selected index changes
-            soruSayfa = 1;
             soruPanel();
         }
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Call the function or perform actions when the selected index changes
-            soruSayfa = 1;
             soruPanel();
         }
     }

@@ -34,6 +34,7 @@ namespace YarismaSitesi
             {
                 Session.Add("username", dr["username"].ToString());
                 Session.Add("task", dr["task"].ToString());
+                Session.Add("id", dr["id"].ToString());
 
                 if (Session["task"].Equals("banned"))
                 {
