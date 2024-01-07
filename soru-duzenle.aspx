@@ -102,7 +102,8 @@
             <td class="auto-style10">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
             <td class="auto-style3">
-                <asp:Button ID="Button1" runat="server" Text="Gönder" OnClick="Button1_Click" />
+                <asp:Button ID="Button1" runat="server" Text="Gönder" OnClick="Button1_Click" />  
+                &nbsp;<asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="İptal" />
             </td>
         </tr>
         <tr>

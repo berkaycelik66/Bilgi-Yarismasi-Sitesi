@@ -13,6 +13,7 @@ namespace YarismaSitesi
     {
         SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -45,6 +46,7 @@ namespace YarismaSitesi
                             baglan.Close();
                         }
                     }
+
                 }
                 else
                 {
@@ -79,6 +81,11 @@ namespace YarismaSitesi
                     Label1.BackColor = System.Drawing.Color.LightGreen;                    
                 }
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("kullanici.aspx?uname=" + Session["username"]);
         }
     }
 }

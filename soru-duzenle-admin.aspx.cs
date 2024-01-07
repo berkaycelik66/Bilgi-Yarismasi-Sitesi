@@ -12,8 +12,10 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle_admin : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+
+        static string url;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,7 +40,7 @@ namespace YarismaSitesi
                     TextBox5.Text = false_answer3.ToString();
                     DropDownList1.Text = category.ToString();
                     baglan.Close();
-
+                    url = Request.UrlReferrer.ToString();
                 }
                 else
                 {
@@ -73,6 +75,11 @@ namespace YarismaSitesi
                     Label1.BackColor = System.Drawing.Color.LightGreen;
                 }
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(url.ToString());
         }
     }
 }

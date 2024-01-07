@@ -53,6 +53,7 @@
             <tr>
                 <td class="auto-style4" colspan="2">
                     <asp:Label ID="Label3" runat="server" Text="Label" CssClass="kopyalanamaz"></asp:Label>
+                    <asp:Label ID="Label5" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>

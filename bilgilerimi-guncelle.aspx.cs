@@ -25,7 +25,8 @@ namespace YarismaSitesi
                     Label1.Text = "Bilgileriniz Başarıyla Güncellenmiştir.";
                     Label1.BackColor = System.Drawing.Color.LightGreen;
                 }
-                if (Request.QueryString["id"] != null)
+                if (Request.QueryString["id"] != null && 
+                    Request.QueryString["id"].ToString() == Session["id"].ToString())
                 {
                     baglan.Open();
                     string id = Request.QueryString["id"];

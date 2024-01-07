@@ -12,11 +12,12 @@ namespace YarismaSitesi
 {
     public partial class yarisma : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         static List<Question> questionBatch;
         static int currentQuestionIndex;
+        static int puan = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -25,7 +26,9 @@ namespace YarismaSitesi
                 {
                     questionBatch.Clear();
                     currentQuestionIndex = questionBatch.Count();
-                } 
+
+                }
+                puan = 0;
                 Button5.Visible = false;
                 LoadQuestionBatch();
                 InitializeQuestion();
@@ -102,6 +105,7 @@ namespace YarismaSitesi
         private void InitializeQuestion()
         {
             Label4.Text = "";
+            Label2.Text = puan.ToString(); 
 
             if (currentQuestionIndex < questionBatch.Count)
             {
@@ -178,12 +182,14 @@ namespace YarismaSitesi
                 clickedButton.BackColor = System.Drawing.Color.ForestGreen;
                 currentQuestionIndex++;
                 Button5.Visible = true;
+                puan += 10;
+                Label2.Text = puan.ToString();
             }
             else
             {
                 beforeAnswer.BackColor = Color.ForestGreen;
                 clickedButton.BackColor = System.Drawing.Color.Red;
-                
+
                 // Add logic for incorrect answer if needed
                 Label3.Text = "Yanlış Cevap Verdiniz. Yarışma Sonlanmıştır.";
                 Button1.OnClientClick = "return false";
@@ -192,6 +198,12 @@ namespace YarismaSitesi
                 Button4.OnClientClick = "return false";
                 questionBatch.Clear();
                 currentQuestionIndex = questionBatch.Count();
+                HyperLink hyperLink = new HyperLink();
+                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
+                hyperLink.Text = "Tekrar Başla";
+                Label5.Controls.Add(hyperLink);
+
+
             }
         }
 
