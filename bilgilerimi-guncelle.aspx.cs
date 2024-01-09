@@ -20,12 +20,12 @@ namespace YarismaSitesi
         {
             if (!IsPostBack)
             {
-                if(Request.QueryString["guncel"] == "ok")
+                if (Request.QueryString["guncel"] == "ok")
                 {
                     Label1.Text = "Bilgileriniz Başarıyla Güncellenmiştir.";
                     Label1.BackColor = System.Drawing.Color.LightGreen;
                 }
-                if (Request.QueryString["id"] != null && 
+                if (Request.QueryString["id"] != null &&
                     Request.QueryString["id"].ToString() == Session["id"].ToString())
                 {
                     baglan.Open();
@@ -35,7 +35,7 @@ namespace YarismaSitesi
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
-                    if(dt.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
                         object username = dt.Rows[0]["username"];
                         if (user.ToString() == username.ToString())
@@ -47,7 +47,7 @@ namespace YarismaSitesi
                             baglan.Close();
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -89,6 +89,7 @@ namespace YarismaSitesi
                         }
 
                         baglan.Close();
+                        senderGuncelle(user.ToString(), TextBox2.Text);
                         TextBox3.Text = "";
                         TextBox4.Text = "";
                         password = null;
@@ -103,6 +104,24 @@ namespace YarismaSitesi
 
                 }
             }
+        }
+
+        protected void senderGuncelle(string oldUsername, string newUsername)
+        {
+            baglan.Open();
+
+            if (Session["task"].ToString() == "admin")
+            {
+                SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "'@admin where sender='" + oldUsername + "@admin'", baglan);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "' where sender='" + oldUsername + "'", baglan);
+                cmd.ExecuteNonQuery();
+            }
+            
+            baglan.Close();
         }
     }
 }
