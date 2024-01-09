@@ -8,25 +8,6 @@
     <a href="admin-kullanicilar.aspx">KULLANICILAR</a>
 
     <table class="admin" border="1">
-        <tr>
-            <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                    <asp:ListItem>Seçiniz</asp:ListItem>
-                    <asp:ListItem>Spor</asp:ListItem>
-                    <asp:ListItem>Tarih</asp:ListItem>
-                    <asp:ListItem>Bilim</asp:ListItem>
-                    <asp:ListItem>Sanat</asp:ListItem>
-                </asp:DropDownList></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-                    <asp:ListItem>Seçiniz</asp:ListItem>
-                    <asp:ListItem>Onaylandı</asp:ListItem>
-                    <asp:ListItem>Onaylanmadı</asp:ListItem>
-                </asp:DropDownList></td>
-        </tr>
 
         <tr>
             <td>Kategori</td>

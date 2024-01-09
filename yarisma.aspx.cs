@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -12,35 +13,45 @@ namespace YarismaSitesi
 {
     public partial class yarisma : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         static List<Question> questionBatch;
         static int currentQuestionIndex;
         static int puan = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["YarismaK"]!= null)
             {
-                if (questionBatch != null)
+                if (!IsPostBack)
                 {
-                    questionBatch.Clear();
-                    currentQuestionIndex = questionBatch.Count();
+                    UpdateTimer.Enabled = true;
+                    if (questionBatch != null)
+                    {
+                        questionBatch.Clear();
+                        currentQuestionIndex = questionBatch.Count();
 
+                    }
+                    puan = 0;
+                    Button5.Visible = false;
+                    LoadQuestionBatch();
+                    InitializeQuestion();
                 }
-                puan = 0;
-                Button5.Visible = false;
-                LoadQuestionBatch();
-                InitializeQuestion();
+                Button1.BackColor = default(Color);
+                Button2.BackColor = default(Color);
+                Button3.BackColor = default(Color);
+                Button4.BackColor = default(Color);
             }
-            Button1.BackColor = default(Color);
-            Button2.BackColor = default(Color);
-            Button3.BackColor = default(Color);
-            Button4.BackColor = default(Color);
+            else
+            {
+                Response.Redirect("yarismaya-basla.aspx");
+            }
+            
         }
         private void LoadQuestionBatch()
         {
-            string category = Request.QueryString["k"];
+            string category = Session["YarismaK"].ToString();
+            Session["YarismaK"] = "";
             object user = Session["username"];
             object task = Session["task"];
             object uname = new object();
@@ -55,7 +66,11 @@ namespace YarismaSitesi
             baglan.Open();
 
             SqlCommand cmd;
-            if (category == null)
+            if (category == "")
+            {
+                Response.Redirect("yarismaya-basla.aspx");
+            }
+            if (category == "Genel")
             {
                 if (user != null)
                 {
@@ -104,6 +119,8 @@ namespace YarismaSitesi
         }
         private void InitializeQuestion()
         {
+            UpdateTimer.Enabled = true;
+            Session["RemainingTime"] = 16;
             Label4.Text = "";
             Label2.Text = puan.ToString(); 
 
@@ -149,7 +166,7 @@ namespace YarismaSitesi
                 Button4.Visible = false;
                 Button5.Visible = false;
                 questionBatch.Clear();
-                currentQuestionIndex = questionBatch.Count(); 
+                currentQuestionIndex = questionBatch.Count();
             }
         }
 
@@ -179,17 +196,22 @@ namespace YarismaSitesi
             if (string.Equals(selectedAnswer, correctAnswer, StringComparison.OrdinalIgnoreCase))
             {
                 // User selected the correct answer, move to the next question
+                UpdateTimer.Enabled = false;
                 clickedButton.BackColor = System.Drawing.Color.ForestGreen;
                 currentQuestionIndex++;
                 Button5.Visible = true;
                 puan += 10;
                 Label2.Text = puan.ToString();
+                Button1.OnClientClick = "return false";
+                Button2.OnClientClick = "return false";
+                Button3.OnClientClick = "return false";
+                Button4.OnClientClick = "return false";
             }
             else
             {
                 beforeAnswer.BackColor = Color.ForestGreen;
                 clickedButton.BackColor = System.Drawing.Color.Red;
-
+                UpdateTimer.Enabled = false;
                 // Add logic for incorrect answer if needed
                 Label3.Text = "Yanlış Cevap Verdiniz. Yarışma Sonlanmıştır.";
                 Button1.OnClientClick = "return false";
@@ -201,14 +223,16 @@ namespace YarismaSitesi
                 HyperLink hyperLink = new HyperLink();
                 hyperLink.NavigateUrl = "yarismaya-basla.aspx";
                 hyperLink.Text = "Tekrar Başla";
-                Label5.Controls.Add(hyperLink);
-
-
+                Label5.Controls.Add(hyperLink);    
             }
         }
 
         protected void Button5_Click(object sender, EventArgs e)
         {
+            Button1.OnClientClick = "return true";
+            Button2.OnClientClick = "return true";
+            Button3.OnClientClick = "return true";
+            Button4.OnClientClick = "return true";
             InitializeQuestion();
         }
 
@@ -233,6 +257,35 @@ namespace YarismaSitesi
             }
 
             return null; // Return null if no correct button is found
+        }
+        protected void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            int remainingTime = Convert.ToInt32(Session["RemainingTime"]);
+
+            if (remainingTime > 0)
+            {
+                remainingTime--;
+                Session["RemainingTime"] = remainingTime;
+                Label1.Text = remainingTime.ToString(); // Geriye doğru sayımı Label'a yaz
+                TimedPanel.Update();
+            }
+            else if (remainingTime == 0)
+            {
+                Label3.Text = "Süre Bitti. Yarışma Sonlanmıştır.";
+                Button1.Visible = false;
+                Button2.Visible = false;
+                Button3.Visible = false;
+                Button4.Visible = false;
+                questionBatch.Clear();
+                currentQuestionIndex = questionBatch.Count();
+                HyperLink hyperLink = new HyperLink();
+                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
+                hyperLink.Text = "Tekrar Başla";
+                Label5.Controls.Add(hyperLink);
+                ScriptManager.RegisterStartupScript(this, GetType(), "PostbackScript", "setTimeout(function(){ __doPostBack('', ''); }, 0);", true);
+                Session["RemainingTime"] = -1;
+                UpdateTimer.Enabled = false;
+            }
         }
     }
 

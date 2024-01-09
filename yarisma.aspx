@@ -23,31 +23,46 @@
         .auto-style5 {
             text-align: right;
         }
+
         .auto-style6 {
             text-align: left;
         }
     </style>
-    <script type="text/javascript">
-        // Sayfa yenilendiğinde belirli bir sayfaya yönlendirme
-        window.onload = function() {
-            // Yönlendirilecek URL'yi burada belirtin
-            var yeniURL = "yarismaya-basla.aspx";
-
-            // Yenileme işlemi olduğunda belirtilen sayfaya yönlendirme
-            if (performance.navigation.type === 1) {
-                window.location.href = yeniURL;
+    <script>
+        // Tarayıcı geri tuşu algılandığında çalışacak fonksiyon
+        function geriTusuKontrol(event) {
+            // Tarayıcı geri tuşu algılandığında, kullanıcıya bir uyarı göster
+            var uyarıMetni = "Yarışmadan çıkacaksınız. Devam etmek istiyor musunuz?";
+            if (confirm(uyarıMetni)) {
+                // Kullanıcı onaylarsa belirli bir sayfaya yönlendir
+                window.location.href = "yarismaya-basla.aspx"; // Yönlendirilecek sayfanın URL'si
+            } else {
+                // Kullanıcı onaylamazsa mevcut sayfada kal
+                history.pushState(null, null, window.location.href);
             }
         }
+
+        // Tarayıcı geri tuşu algılama olayını dinle
+        window.addEventListener("popstate", geriTusuKontrol);
+        window.history.pushState(null, null, window.location.href);
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="yarisma-style">
         <table class="auto-style2" border="1">
-
             <tr>
-                <td class="auto-style3">Süre:<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                </td>
-                <td class="auto-style3">Puan:<asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                <asp:Timer runat="server" Enabled="false" ID="UpdateTimer" Interval="1000" OnTick="UpdateTimer_Tick" />
+                <asp:UpdatePanel runat="server" ID="TimedPanel" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>    
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="UpdateTimer" EventName="Tick" />
+                    </Triggers>
+                </asp:UpdatePanel>
+                <td class="auto-style3">Puan:<asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
                 </td>
             </tr>
             <tr>

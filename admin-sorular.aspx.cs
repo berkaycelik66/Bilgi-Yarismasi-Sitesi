@@ -34,35 +34,7 @@ namespace YarismaSitesi
         {
             baglan.Open();
 
-            string selectedCategory = DropDownList1.SelectedValue;
-            string selectedApprovalStatus = DropDownList2.SelectedValue;
-
-            // Build the SQL query based on selected filters
-            string query = "SELECT * FROM questions WHERE 1=1";
-
-            if (selectedCategory != "Seçiniz")
-            {
-                query += " AND category = @Category";
-            }
-
-            if (selectedApprovalStatus != "Seçiniz")
-            {
-                query += " AND state = @State";
-            }
-
-            SqlDataAdapter da = new SqlDataAdapter(query, baglan);
-
-            if (selectedCategory != "Seçiniz")
-            {
-                da.SelectCommand.Parameters.AddWithValue("@Category", selectedCategory);
-            }
-
-            if (selectedApprovalStatus != "Seçiniz")
-            {
-                bool isApproved = selectedApprovalStatus.Equals("Onaylandı", StringComparison.OrdinalIgnoreCase);
-                da.SelectCommand.Parameters.AddWithValue("@State", isApproved);
-            }
-
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", baglan);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
@@ -95,17 +67,6 @@ namespace YarismaSitesi
             rpt1.DataSource = pds;
             rpt1.DataBind();
             baglan.Close();
-        }
-
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Call the function or perform actions when the selected index changes
-            soruPanel();
-        }
-        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Call the function or perform actions when the selected index changes
-            soruPanel();
         }
     }
 }

@@ -29,10 +29,10 @@
         </tr>
         <tr>
             <td>
-                <a href="yarisma.aspx">GENEL SORULAR</a> |
-                <a href="yarisma.aspx?k=Sanat">SANAT</a> |
-                <a href="yarisma.aspx?k=Spor">SPOR</a> |
-                <a href="yarisma.aspx?k=Tarih">TARİH</a> |
+                <asp:Button ID="btnGenelSorular" runat="server" Text="GENEL SORULAR" OnClick="btnGenelSorular_Click" />
+                <asp:Button ID="btnSanat" runat="server" Text="SANAT" OnClick="btnSanat_Click" />
+                <asp:Button ID="btnSpor" runat="server" Text="SPOR" OnClick="btnSpor_Click" />
+                <asp:Button ID="btnTarih" runat="server" Text="TARİH" OnClick="btnTarih_Click" />
             </td>
         </tr>
     </table>
