@@ -33,16 +33,31 @@ namespace YarismaSitesi
             }
             else
             {
-                // TextBox'lar boş değilse, veritabanına ekleme işlemini gerçekleştir
                 baglan.Open();
-                SqlCommand cmd = new SqlCommand("insert into users(mail,username,password,task) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','user')", baglan);
 
-                cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("select * from users where mail='" + TextBox1.Text + "' or username= '" + TextBox2.Text + "'", baglan);
 
-                Label1.Text = "Kayıt Başarılı";
-                Label1.BackColor = System.Drawing.Color.ForestGreen;
-                TextBox1.Text = "";
-                TextBox2.Text = "";
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    Label1.Text = "Bu kullanıcı adı veya mail kullanılmaktadır!";
+                    Label1.BackColor = System.Drawing.Color.Red;
+                    dr.Close();
+                }
+                else
+                {
+                    dr.Close();
+                    // TextBox'lar boş değilse, veritabanına ekleme işlemini gerçekleştir
+                    SqlCommand cmd2 = new SqlCommand("insert into users(mail,username,password,task) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','user')", baglan);
+                    cmd2.ExecuteNonQuery();
+
+                    Label1.Text = "Kayıt Başarılı";
+                    Label1.BackColor = System.Drawing.Color.ForestGreen;
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+                }
+
                 baglan.Close();
             }
 
