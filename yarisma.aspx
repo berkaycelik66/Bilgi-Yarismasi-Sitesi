@@ -52,16 +52,18 @@
     <div class="yarisma-style">
         <table class="auto-style2" border="1">
             <tr>
-                <asp:ScriptManager ID="ScriptManager1" runat="server" />
-                <asp:Timer runat="server" Enabled="false" ID="UpdateTimer" Interval="1000" OnTick="UpdateTimer_Tick" />
-                <asp:UpdatePanel runat="server" ID="TimedPanel" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>    
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="UpdateTimer" EventName="Tick" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                <td class="auto-style3">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                    <asp:Timer runat="server" Enabled="false" ID="UpdateTimer" Interval="1000" OnTick="UpdateTimer_Tick" />
+                    <asp:UpdatePanel runat="server" ID="TimedPanel" UpdateMode="Conditional">
+                        <ContentTemplate>
+                            Süre:<asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="UpdateTimer" EventName="Tick" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </td>
                 <td class="auto-style3">Puan:<asp:Label ID="Label2" runat="server" Text="0"></asp:Label>
                 </td>
             </tr>

@@ -25,7 +25,6 @@ namespace YarismaSitesi
             {
                 if (!IsPostBack)
                 {
-                    UpdateTimer.Enabled = true;
                     if (questionBatch != null)
                     {
                         questionBatch.Clear();
@@ -41,6 +40,13 @@ namespace YarismaSitesi
                 Button2.BackColor = default(Color);
                 Button3.BackColor = default(Color);
                 Button4.BackColor = default(Color);
+                if (Session["RemainingTime"].ToString() == "0")
+                {
+                    HyperLink hyperLink = new HyperLink();
+                    hyperLink.NavigateUrl = "yarismaya-basla.aspx";
+                    hyperLink.Text = "Tekrar Başla";
+                    Label5.Controls.Add(hyperLink);
+                }
             }
             else
             {
@@ -119,8 +125,8 @@ namespace YarismaSitesi
         }
         private void InitializeQuestion()
         {
-            UpdateTimer.Enabled = true;
             Session["RemainingTime"] = 16;
+            UpdateTimer.Enabled = true;
             Label4.Text = "";
             Label2.Text = puan.ToString(); 
 
@@ -159,6 +165,7 @@ namespace YarismaSitesi
             else
             {
                 // The user has completed all questions in the batch
+                UpdateTimer.Enabled = false;
                 Label3.Text = "Congratulations! You have completed all questions.";
                 Button1.Visible = false;
                 Button2.Visible = false;
@@ -278,13 +285,9 @@ namespace YarismaSitesi
                 Button4.Visible = false;
                 questionBatch.Clear();
                 currentQuestionIndex = questionBatch.Count();
-                HyperLink hyperLink = new HyperLink();
-                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
-                hyperLink.Text = "Tekrar Başla";
-                Label5.Controls.Add(hyperLink);
-                ScriptManager.RegisterStartupScript(this, GetType(), "PostbackScript", "setTimeout(function(){ __doPostBack('', ''); }, 0);", true);
-                Session["RemainingTime"] = -1;
                 UpdateTimer.Enabled = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "PostbackScript", "setTimeout(function(){ __doPostBack('', ''); }, 0);", true);
+                
             }
         }
     }
