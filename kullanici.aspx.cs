@@ -19,39 +19,68 @@ namespace YarismaSitesi
 
             object user = Session["username"];
             String username = Request.QueryString["uname"];
-            Label1.Text = username + "'nin Profili";
-            if (user != null)
+            if (usernameCheck(username))
             {
-                if (username == user.ToString())
+                Label1.Text = username + "'nin Profili";
+                if (user != null)
                 {
-                    pnlQuestions.Visible = true;
+                    if (username == user.ToString())
+                    {
+                        pnlQuestions.Visible = true;
+                    }
+                    else
+                    {
+                        pnlQuestions.Visible = false;
+                    }
                 }
                 else
                 {
                     pnlQuestions.Visible = false;
                 }
+
+                baglan.Open();
+
+                /*Kullanıcının Puanları*/
+                SqlDataAdapter da = new SqlDataAdapter("select * from pointsList where username='" + username + "' ORDER BY dates DESC", baglan);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Repeater1.DataSource = dt;
+                Repeater1.DataBind();
+
+                /*Kullanıcının Eklediği Sorular*/
+                SqlDataAdapter da2 = new SqlDataAdapter("select * from questions where sender='" + username + "' or sender='" + username + "@admin' ORDER BY id DESC", baglan);
+                DataTable dt2 = new DataTable();
+                da2.Fill(dt2);
+                Repeater2.DataSource = dt2;
+                Repeater2.DataBind();
+                baglan.Close();
             }
             else
             {
+                Label1.Text = "Böyle bir kullanıcı mevcut değildir.";
                 pnlQuestions.Visible = false;
+                pnlPoints.Visible = false;
+            }
+        }
+
+        protected Boolean usernameCheck(String username)
+        {
+            baglan.Open();
+            SqlCommand cmd = new SqlCommand("select * from users where username= '" + username + "'", baglan);
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                baglan.Close();
+                return true;
+            }
+            else
+            {
+                baglan.Close();
+                return false;
             }
 
-            baglan.Open();
-
-            /*Kullanıcının Puanları*/
-            SqlDataAdapter da = new SqlDataAdapter("select * from pointsList where username='" + username + "' ORDER BY dates DESC", baglan);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Repeater1.DataSource = dt;
-            Repeater1.DataBind();
-
-            /*Kullanıcının Eklediği Sorular*/
-            SqlDataAdapter da2 = new SqlDataAdapter("select * from questions where sender='" + username + "' or sender='"+ username +"@admin' ORDER BY id DESC", baglan);
-            DataTable dt2 = new DataTable();
-            da2.Fill(dt2);
-            Repeater2.DataSource = dt2;
-            Repeater2.DataBind();
-            baglan.Close();
         }
     }
 }

@@ -48,7 +48,6 @@ namespace YarismaSitesi
                 else
                 {
                     dr.Close();
-                    // TextBox'lar boş değilse, veritabanına ekleme işlemini gerçekleştir
                     SqlCommand cmd2 = new SqlCommand("insert into users(mail,username,password,task) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','user')", baglan);
                     cmd2.ExecuteNonQuery();
 

@@ -27,54 +27,60 @@
             </td>
         </tr>
     </table>
-    <table class="auto-style1 top-list" border="1">
-        <tr>
-            <td>Points</td>
-            <td>Date</td>
-            <td>Category</td>
-        </tr>
 
-        <asp:Repeater ID="Repeater1" runat="server">
-            <ItemTemplate>
-                <tr>
-                    <td><%#Eval("points")%></td>
-                    <td><%#Eval("dates")%></td>
-                    <td><%#Eval("category")%></td>
+    <asp:Panel ID="pnlPoints" runat="server">
+        <table class="auto-style1 top-list" border="1">
+            <tr>
+                <td>Points</td>
+                <td>Date</td>
+                <td>Category</td>
+            </tr>
 
-                    <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <tr>
+                        <td><%#Eval("points")%></td>
+                        <td><%#Eval("dates")%></td>
+                        <td><%#Eval("category")%></td>
+
+                        <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
+                        <%
+                            if (Session["username"] != null)
+                            {%>
+                        <td <%#Session["username"] != null && Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
+                            <a id="soru_sil" href="puan-sil.aspx?id=<%#Eval("id")%>">Sil</a>
+                        </td>
+                        <% }%>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    <asp:Label ID="lblMessage" runat="server" Visible="false"></asp:Label>
+                </FooterTemplate>
+            </asp:Repeater>
+        </table>
+
+        <table class="auto-style1 top-list">
+            <tr>
+                <td colspan="3">
                     <%
-                        if (Session["username"] != null)
+                        if (Request.QueryString["YarışmaSil"] == "ok")
                         {%>
-                    <td <%#Session["username"] != null && Eval("username").ToString() == Session["username"].ToString() ? "" : "style='display:none;'" %>>
-                        <a id="soru_sil" href="puan-sil.aspx?id=<%#Eval("id")%>">Sil</a>
-                    </td>
-                    <% }%>
-                </tr>
+                    <div class="ok">
+                        <center>Yarışma sonucunuz Başarıyla Silindi</center>
+                    </div>
+                    <% }
+                        else if (Request.QueryString["YarışmaSil"] == "hata")
+                        {
+                    %>
+                    <div class="hata">
+                        <center>Yarışma sonucu Size Ait Değil</center>
+                    </div>
+                    <% } %>
+                </td>
+            </tr>
 
-            </ItemTemplate>
-        </asp:Repeater>
-    </table>
-    <table class="auto-style1 top-list">
-        <tr>
-            <td colspan="3">
-                <%
-                    if (Request.QueryString["YarışmaSil"] == "ok")
-                    {%>
-                <div class="ok">
-                    <center>Yarışma sonucunuz Başarıyla Silindi</center>
-                </div>
-                <% }
-                    else if (Request.QueryString["YarışmaSil"] == "hata")
-                    {
-                %>
-                <div class="hata">
-                    <center>Yarışma sonucu Size Ait Değil</center>
-                </div>
-                <% } %>
-            </td>
-        </tr>
-
-    </table>
+        </table>
+    </asp:Panel>
     <br />
     <br />
 

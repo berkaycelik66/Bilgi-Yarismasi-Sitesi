@@ -22,7 +22,6 @@
                     <td>
                         <%# Eval("task").Equals("banned") ? "<a href='engel.aspx?id=" + Eval("id") + "'>Engeli Kaldır</a>" : "<a href='engel.aspx?id=" + Eval("id") + "'>Engelle</a>" %>
                     </td>
-                    <td><a href="soru-sil.aspx?id=<%#Eval("id")%>">Sil</a></td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>
