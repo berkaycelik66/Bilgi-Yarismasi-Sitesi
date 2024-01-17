@@ -19,13 +19,18 @@ namespace YarismaSitesi
 
             object user = Session["username"];
             String username = Request.QueryString["uname"];
-            if (usernameCheck(username))
+            if (username == null)
             {
-                Label1.Text = username + "'nin Profili";
+                Response.Redirect("anasayfa.aspx");
+            }
+            else if (usernameCheck(username))
+            {
+                Label1.Text = username + " Adlı Kullanıcının Profili";
                 if (user != null)
                 {
                     if (username == user.ToString())
                     {
+                        Label1.Text ="Profilim";
                         pnlQuestions.Visible = true;
                     }
                     else
@@ -44,8 +49,25 @@ namespace YarismaSitesi
                 SqlDataAdapter da = new SqlDataAdapter("select * from pointsList where username='" + username + "' ORDER BY dates DESC", baglan);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
-                Repeater1.DataSource = dt;
-                Repeater1.DataBind();
+                if (dt.Rows.Count > 0)
+                {
+                    Repeater1.DataSource = dt;
+                    Repeater1.DataBind();
+                }
+                else
+                {
+                    if (user != null && user.ToString() != username)
+                    {
+                        Label2.Visible = true;
+                        Label2.Text = "Bu Kullanıcıya ait henüz yarışma bilgisi bulunamamaktadır.";
+                    }
+                    else if(user == null)
+                    {
+                        Label2.Visible = true;
+                        Label2.Text = "Bu Kullanıcıya ait henüz yarışma bilgisi bulunamamaktadır.";
+                    }
+                    
+                }
 
                 /*Kullanıcının Eklediği Sorular*/
                 SqlDataAdapter da2 = new SqlDataAdapter("select * from questions where sender='" + username + "' or sender='" + username + "@admin' ORDER BY id DESC", baglan);
