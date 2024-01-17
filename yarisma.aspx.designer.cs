@@ -78,6 +78,15 @@ namespace YarismaSitesi
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
+        /// Button6 denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button6;
+
+        /// <summary>
         /// Button1 denetimi.
         /// </summary>
         /// <remarks>

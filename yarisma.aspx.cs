@@ -13,8 +13,8 @@ namespace YarismaSitesi
 {
     public partial class yarisma : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         static List<Question> questionBatch;
         static int currentQuestionIndex;
@@ -57,6 +57,7 @@ namespace YarismaSitesi
         private void LoadQuestionBatch()
         {
             string category = Session["YarismaK"].ToString();
+            Session["ctgkayit"] = category;
             Session["YarismaK"] = "";
             object user = Session["username"];
             object task = Session["task"];
@@ -166,12 +167,30 @@ namespace YarismaSitesi
             {
                 // The user has completed all questions in the batch
                 UpdateTimer.Enabled = false;
-                Label3.Text = "Congratulations! You have completed all questions.";
+                Label3.Text = "Tebrikler! Bütün Soruları Tamamladınız.";
+                if (puan != 0 && Session["username"] != null)
+                {
+                    Button6.Visible = true;
+                    DateTime now = DateTime.Now;
+
+                    // ClickInfo nesnesini oluştur ve tarih bilgisini at
+                    ClickInfo clickInfo = new ClickInfo
+                    {
+                        ClickDateTime = now
+                    };
+
+                    // Bilgileri sessiona at
+                    Session["ClickInfo"] = clickInfo;
+                }
                 Button1.Visible = false;
                 Button2.Visible = false;
                 Button3.Visible = false;
                 Button4.Visible = false;
                 Button5.Visible = false;
+                HyperLink hyperLink = new HyperLink();
+                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
+                hyperLink.Text = "Tekrar Başla";
+                Label5.Controls.Add(hyperLink);
                 questionBatch.Clear();
                 currentQuestionIndex = questionBatch.Count();
             }
@@ -207,7 +226,8 @@ namespace YarismaSitesi
                 clickedButton.BackColor = System.Drawing.Color.ForestGreen;
                 currentQuestionIndex++;
                 Button5.Visible = true;
-                puan += 10;
+                int remainingTimepoint = Convert.ToInt32(Session["RemainingTime"]);
+                puan += 10 + remainingTimepoint;
                 Label2.Text = puan.ToString();
                 Button1.OnClientClick = "return false";
                 Button2.OnClientClick = "return false";
@@ -221,6 +241,20 @@ namespace YarismaSitesi
                 UpdateTimer.Enabled = false;
                 // Add logic for incorrect answer if needed
                 Label3.Text = "Yanlış Cevap Verdiniz. Yarışma Sonlanmıştır.";
+                if (puan != 0 && Session["username"] != null)
+                {
+                    Button6.Visible = true;
+                    DateTime now = DateTime.Now;
+
+                    // ClickInfo nesnesini oluştur ve tarih bilgisini at
+                    ClickInfo clickInfo = new ClickInfo
+                    {
+                        ClickDateTime = now
+                    };
+
+                    // Bilgileri sessiona at
+                    Session["ClickInfo"] = clickInfo;
+                }
                 Button1.OnClientClick = "return false";
                 Button2.OnClientClick = "return false";
                 Button3.OnClientClick = "return false";
@@ -279,6 +313,20 @@ namespace YarismaSitesi
             else if (remainingTime == 0)
             {
                 Label3.Text = "Süre Bitti. Yarışma Sonlanmıştır.";
+                if (puan != 0 && Session["username"] != null)
+                {
+                    Button6.Visible = true;
+                    DateTime now = DateTime.Now;
+
+                    // ClickInfo nesnesini oluştur ve tarih bilgisini at
+                    ClickInfo clickInfo = new ClickInfo
+                    {
+                        ClickDateTime = now
+                    };
+
+                    // Bilgileri sessiona at
+                    Session["ClickInfo"] = clickInfo;
+                }
                 Button1.Visible = false;
                 Button2.Visible = false;
                 Button3.Visible = false;
@@ -290,8 +338,41 @@ namespace YarismaSitesi
                 
             }
         }
-    }
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            // ClickInfo nesnesini Session'dan al
+            ClickInfo clickInfo = (ClickInfo)Session["ClickInfo"];
 
+            // Kullanıcı adı, puan ve kategori bilgilerini al
+            string user = Session["username"].ToString();
+             // GetPuan fonksiyonunu sizin puan bilgisini nasıl aldığınıza göre uyarlayın
+            string category = Session["ctgkayit"].ToString();
+
+            // SQL sorgusunu parametre kullanarak oluştur
+            string query = "INSERT INTO pointsList (username, points, dates, category) VALUES (@Username, @Points, @Dates, @Category)";
+
+            // SqlCommand ve SqlConnection nesnelerini kullan
+            using (SqlCommand cmd = new SqlCommand(query, baglan))
+            {
+                // Parametreleri ekleyerek SQL sorgusunu güvenli hale getir
+                cmd.Parameters.AddWithValue("@Username", user);
+                cmd.Parameters.AddWithValue("@Points", puan);
+                cmd.Parameters.AddWithValue("@Dates", clickInfo.ClickDateTime);
+                cmd.Parameters.AddWithValue("@Category", category);
+
+                // Bağlantıyı aç ve sorguyu çalıştır
+                baglan.Open();
+                cmd.ExecuteNonQuery();
+                baglan.Close(); 
+            }
+            Response.Redirect("kullanici.aspx?uname=" + user);
+        }
+
+    }
+    public class ClickInfo
+    {
+        public DateTime ClickDateTime { get; set; }
+    }
     public class Question
     {
         public int Id { get; set; }
