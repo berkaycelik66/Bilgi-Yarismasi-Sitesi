@@ -147,3 +147,122 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+.btnsil a {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #e62222;
+}
+
+    .btnsil a, .btnsil a span {
+        transition: 200ms;
+    }
+
+        .btnsil a .text {
+            transform: translateX(35px);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btnsil a .icon {
+            position: absolute;
+            border-left: 1px solid #c41b1b;
+            transform: translateX(70px);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnsil a svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        .btnsil a:hover {
+            background: #ff3636;
+        }
+
+            .btnsil a:hover .text {
+                color: transparent;
+            }
+
+            .btnsil a:hover .icon {
+                width: 100px;
+                border-left: none;
+                transform: translateX(0);
+            }
+
+        .btnsil a:focus {
+            outline: none;
+        }
+
+        .btnsil a:active .icon svg {
+            transform: scale(0.8);
+        }
+.btnedit a {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #13468f;
+}
+
+    .btnedit a, .btnedit a span {
+        transition: 200ms;
+    }
+
+        .btnedit a .text {
+            transform: translateX(10px);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btnedit a .icon {
+            position: absolute;
+            border-left: 1px solid #216fdb;
+            transform: translateX(70px);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnedit a svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        .btnedit a:hover {
+            background: #216fdb;
+        }
+
+            .btnedit a:hover .text {
+                color: transparent;
+            }
+
+            .btnedit a:hover .icon {
+                width: 100px;
+                border-left: none;
+                transform: translateX(0);
+            }
+
+        .btnedit a:focus {
+            outline: none;
+        }
+
+        .btnedit a:active .icon svg {
+            transform: scale(0.8);
+        }
+

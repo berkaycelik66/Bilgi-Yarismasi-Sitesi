@@ -90,7 +90,7 @@
                 <td class="auto-style5">NOT:Zorunlu alanlar * ile işaretlenmiştir</td>
                 <td class="auto-style4">&nbsp;</td>
                 <td class="auto-style8">
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Güncelle" />
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Güncelle" CssClass="your-custom-button-class" />
                 </td>
             </tr>
             <tr>
