@@ -113,8 +113,25 @@
             <td class="auto-style10">&nbsp;</td>
             <td class="auto-style3">&nbsp;</td>
             <td class="auto-style3">
-                <asp:Button ID="Button1" runat="server" Text="Gönder" OnClick="Button1_Click" />
-                <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="İptal" />
+                <div class="btnGonder">
+                    <button id="Button1" runat="server" onserverclick="Button1_Click">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path
+                                fill="currentColor"
+                                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z">
+                            </path>
+                        </svg><span class="text">Gönder</span></button>
+                </div>
+                <br />
+                <div class="btncancel">
+                    <button id="Button2" runat="server" onserverclick="Button2_Click">
+                        <span class="text">İptal</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                </div>
             </td>
         </tr>
         <tr>

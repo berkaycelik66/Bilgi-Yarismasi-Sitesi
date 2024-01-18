@@ -75,7 +75,7 @@ namespace YarismaSitesi
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.HtmlControls.HtmlButton Button1;
 
         /// <summary>
         /// Button2 control.
@@ -84,7 +84,7 @@ namespace YarismaSitesi
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.HtmlControls.HtmlButton Button2;
 
         /// <summary>
         /// Label1 control.
