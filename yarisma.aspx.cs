@@ -133,7 +133,39 @@ namespace YarismaSitesi
 
             if (currentQuestionIndex < questionBatch.Count)
             {
-                
+                switch (currentQuestionIndex)
+                {
+                    case 0:
+                        Soru1.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 1:
+                        Soru2.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 2:
+                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 3:
+                        Soru1.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 4:
+                        Soru2.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 5:
+                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 6:
+                        Soru1.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 7:
+                        Soru2.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 8:
+                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                    case 9:
+                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        break;
+                }
                 Question currentQuestion = questionBatch[currentQuestionIndex];
 
                 Label3.Text = currentQuestion.QuestionText;
@@ -233,6 +265,7 @@ namespace YarismaSitesi
                 Button2.OnClientClick = "return false";
                 Button3.OnClientClick = "return false";
                 Button4.OnClientClick = "return false";
+                
             }
             else
             {
@@ -259,6 +292,39 @@ namespace YarismaSitesi
                 Button2.OnClientClick = "return false";
                 Button3.OnClientClick = "return false";
                 Button4.OnClientClick = "return false";
+                switch (currentQuestionIndex)
+                {
+                    case 0:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 1:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 2:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 3:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 4:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 5:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 6:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 7:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 8:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 9:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                }
                 questionBatch.Clear();
                 currentQuestionIndex = questionBatch.Count();
                 HyperLink hyperLink = new HyperLink();
@@ -274,7 +340,40 @@ namespace YarismaSitesi
             Button2.OnClientClick = "return true";
             Button3.OnClientClick = "return true";
             Button4.OnClientClick = "return true";
-            InitializeQuestion();
+            switch (currentQuestionIndex - 1)
+            {
+                case 0:
+                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 1:
+                    Soru2.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 2:
+                    Soru3.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 3:
+                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 4:
+                    Soru2.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 5:
+                    Soru3.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 6:
+                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 7:
+                    Soru2.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 8:
+                    Soru3.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+                case 9:
+                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    break;
+            }
+            InitializeQuestion();     
         }
 
         private Button GetCorrectButton()
@@ -313,6 +412,39 @@ namespace YarismaSitesi
             else if (remainingTime == 0)
             {
                 Label3.Text = "Süre Bitti. Yarışma Sonlanmıştır.";
+                switch (currentQuestionIndex)
+                {
+                    case 0:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 1:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 2:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 3:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 4:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 5:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 6:
+                        Soru1.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 7:
+                        Soru2.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 8:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                    case 9:
+                        Soru3.BackColor = System.Drawing.Color.Red;
+                        break;
+                }
                 if (puan != 0 && Session["username"] != null)
                 {
                     Button6.Visible = true;

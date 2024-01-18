@@ -52,6 +52,18 @@
     <div class="yarisma-style">
         <table class="auto-style2" border="1">
             <tr>
+                <asp:Label ID="Soru1" runat="server" Text=" 1 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru2" runat="server" Text="2 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru3" runat="server" Text="3 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru4" runat="server" Text="4 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru5" runat="server" Text="5 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru6" runat="server" Text="6 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru7" runat="server" Text="7 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru8" runat="server" Text="8 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru9" runat="server" Text="9 " CssClass="auto-style2"></asp:Label>
+                <asp:Label ID="Soru10" runat="server" Text="10 " CssClass="auto-style2"></asp:Label>
+            </tr>
+            <tr>
                 <td class="auto-style3">
                     <asp:ScriptManager ID="ScriptManager1" runat="server" />
                     <asp:Timer runat="server" Enabled="false" ID="UpdateTimer" Interval="1000" OnTick="UpdateTimer_Tick" />
