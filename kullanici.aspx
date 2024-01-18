@@ -66,14 +66,14 @@
                         if (Request.QueryString["YarışmaSil"] == "ok")
                         {%>
                     <div class="ok">
-                        <center>Yarışma sonucunuz Başarıyla Silindi</center>
+                        <center>Yarışma Sonucunuz Başarıyla Silindi</center>
                     </div>
                     <% }
                         else if (Request.QueryString["YarışmaSil"] == "hata")
                         {
                     %>
                     <div class="hata">
-                        <center>Yarışma sonucu Size Ait Değil</center>
+                        <center>Yarışma Sonucu Size Ait Değil</center>
                     </div>
                     <% } %>
                 </td>

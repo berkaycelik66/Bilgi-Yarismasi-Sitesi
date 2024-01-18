@@ -12,16 +12,25 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle_admin : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
-        static string url;
+        static string url = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 if (Request.QueryString["id"] != null)
                 {
+                    if (Request.UrlReferrer != null)
+                    {
+                        url = Request.UrlReferrer.ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("admin.aspx");
+                    }
                     baglan.Open();
                     string id = Request.QueryString["id"];
                     SqlDataAdapter da = new SqlDataAdapter("select * from questions where id='" + id + "'", baglan);
@@ -40,7 +49,6 @@ namespace YarismaSitesi
                     TextBox5.Text = false_answer3.ToString();
                     DropDownList1.Text = category.ToString();
                     baglan.Close();
-                    url = Request.UrlReferrer.ToString();
                 }
                 else
                 {

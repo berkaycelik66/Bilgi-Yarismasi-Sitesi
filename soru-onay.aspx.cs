@@ -11,12 +11,12 @@ namespace YarismaSitesi
 {
     public partial class soru_onay : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Request.QueryString["id"] != null)
+            if (Request.QueryString["id"] != null && Session["username"] != null)
             {
                 baglan.Open();
                 string id = Request.QueryString["id"];
@@ -46,7 +46,15 @@ namespace YarismaSitesi
                 else
                 {
                     baglan.Close();
-                    Response.Redirect(Request.UrlReferrer.ToString());
+
+                    if (Request.UrlReferrer != null)
+                    {
+                        Response.Redirect(Request.UrlReferrer.ToString());
+                    }
+                    else
+                    {
+                        Response.Redirect("anasayfa.aspx");
+                    }
                 }
             }
             else

@@ -11,18 +11,25 @@ namespace YarismaSitesi
 {
     public partial class engel : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["id"] != null)
+
+            if (Request.QueryString["id"] != null && Session["username"] != null && 
+                Session["task"].ToString() == "admin")
             {
-                baglan.Open();
+                if(Request.UrlReferrer == null)
+                {
+                    Response.Redirect("admin.aspx");
+                }
+                    baglan.Open();
                 string id = Request.QueryString["id"];
                 SqlDataAdapter da = new SqlDataAdapter("select * from users where id='" + id + "'", baglan);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
                 string task = dt.Rows[0]["task"].ToString();
+                
                 if (task != "banned" && task != "admin")
                 {
                     SqlCommand cmd = new SqlCommand("update users set task='banned' where id='" + id + "'", baglan);

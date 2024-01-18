@@ -13,19 +13,26 @@ namespace YarismaSitesi
 {
     public partial class bilgilerimi_guncelle : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         static object password;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["guncel"] == "ok")
+                if (Request.UrlReferrer != null)
                 {
-                    Label1.Text = "Bilgileriniz Başarıyla Güncellenmiştir.";
-                    Label1.BackColor = System.Drawing.Color.LightGreen;
+                    if (Request.QueryString["guncel"] == "ok")
+                    {
+                        Label1.Text = "Bilgileriniz Başarıyla Güncellenmiştir.";
+                        Label1.BackColor = System.Drawing.Color.LightGreen;
+                    }
+                    else
+                    {
+                    }
                 }
-                if (Request.QueryString["id"] != null &&
+
+                if (Session["username"] != null && Request.QueryString["id"] != null &&
                     Request.QueryString["id"].ToString() == Session["id"].ToString())
                 {
                     baglan.Open();
@@ -120,8 +127,24 @@ namespace YarismaSitesi
                 SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "' where sender='" + oldUsername + "'", baglan);
                 cmd.ExecuteNonQuery();
             }
-            
+
             baglan.Close();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.UrlReferrer.ToString());
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            baglan.Open();
+            SqlCommand cmd = new SqlCommand("delete from users where id='" + Request.QueryString["id"].ToString() + "'", baglan);
+            cmd.ExecuteNonQuery();
+            baglan.Close();
+
+            Session.Abandon();
+            Response.Redirect("anasayfa.aspx");
         }
     }
 }

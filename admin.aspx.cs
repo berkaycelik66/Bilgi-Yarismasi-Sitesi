@@ -13,7 +13,7 @@ namespace YarismaSitesi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Session["task"].Equals("admin"))
+            if (Session["task"] == null || !Session["task"].Equals("admin"))
             {
                 Response.Redirect("anasayfa.aspx");
             }

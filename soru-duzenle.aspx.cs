@@ -11,14 +11,14 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["id"] != null)
+                if (Request.QueryString["id"] != null && Session["username"] != null)
                 {
                     baglan.Open();
                     string id = Request.QueryString["id"];
@@ -44,6 +44,10 @@ namespace YarismaSitesi
                             TextBox5.Text = false_answer3.ToString();
                             DropDownList1.Text = category.ToString();
                             baglan.Close();
+                        }
+                        else
+                        {
+                            Response.Redirect("kullanici.aspx?uname=" + user.ToString());
                         }
                     }
 

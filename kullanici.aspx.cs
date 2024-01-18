@@ -12,8 +12,8 @@ namespace YarismaSitesi
 {
     public partial class kullanici : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -59,12 +59,12 @@ namespace YarismaSitesi
                     if (user != null && user.ToString() != username)
                     {
                         Label2.Visible = true;
-                        Label2.Text = "Bu Kullanıcıya ait henüz yarışma bilgisi bulunamamaktadır.";
+                        Label2.Text = "Bu kullanıcıya ait henüz yarışma bilgisi bulunmamaktadır.";
                     }
                     else if(user == null)
                     {
                         Label2.Visible = true;
-                        Label2.Text = "Bu Kullanıcıya ait henüz yarışma bilgisi bulunamamaktadır.";
+                        Label2.Text = "Bu kullanıcıya ait henüz yarışma bilgisi bulunmamaktadır.";
                     }
                     
                 }
