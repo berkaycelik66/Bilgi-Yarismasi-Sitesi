@@ -21,7 +21,7 @@ namespace YarismaSitesi
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenelSorular;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGenelSorular;
 
         /// <summary>
         /// btnSanat denetimi.
@@ -30,7 +30,7 @@ namespace YarismaSitesi
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSanat;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSanat;
 
         /// <summary>
         /// btnSpor denetimi.
@@ -39,7 +39,7 @@ namespace YarismaSitesi
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSpor;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnSpor;
 
         /// <summary>
         /// btnTarih denetimi.
@@ -48,6 +48,6 @@ namespace YarismaSitesi
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTarih;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnTarih;
     }
 }

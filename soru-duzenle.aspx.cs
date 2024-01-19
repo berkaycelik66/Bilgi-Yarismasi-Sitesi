@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class soru_duzenle : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,25 +29,52 @@ namespace YarismaSitesi
                     if (dt.Rows.Count > 0)
                     {
                         object senderValue = dt.Rows[0]["sender"];
-                        if (user.ToString() == senderValue.ToString())
+                        if (Session["task"].Equals("admin"))
                         {
-                            object question = dt.Rows[0]["question"];
-                            object true_answer = dt.Rows[0]["true_answer"];
-                            object false_answer1 = dt.Rows[0]["false_answer1"];
-                            object false_answer2 = dt.Rows[0]["false_answer2"];
-                            object false_answer3 = dt.Rows[0]["false_answer3"];
-                            object category = dt.Rows[0]["category"];
-                            TextBox1.Text = question.ToString();
-                            TextBox2.Text = true_answer.ToString();
-                            TextBox3.Text = false_answer1.ToString();
-                            TextBox4.Text = false_answer2.ToString();
-                            TextBox5.Text = false_answer3.ToString();
-                            DropDownList1.Text = category.ToString();
-                            baglan.Close();
+                            string userValue = user.ToString() + "@admin";
+                            if (userValue == senderValue.ToString())
+                            {
+                                object question = dt.Rows[0]["question"];
+                                object true_answer = dt.Rows[0]["true_answer"];
+                                object false_answer1 = dt.Rows[0]["false_answer1"];
+                                object false_answer2 = dt.Rows[0]["false_answer2"];
+                                object false_answer3 = dt.Rows[0]["false_answer3"];
+                                object category = dt.Rows[0]["category"];
+                                TextBox1.Text = question.ToString();
+                                TextBox2.Text = true_answer.ToString();
+                                TextBox3.Text = false_answer1.ToString();
+                                TextBox4.Text = false_answer2.ToString();
+                                TextBox5.Text = false_answer3.ToString();
+                                DropDownList1.Text = category.ToString();
+                                baglan.Close();
+                            }
+                            else
+                            {
+                                Response.Redirect("kullanici.aspx?uname=" + user.ToString());
+                            }
                         }
                         else
                         {
-                            Response.Redirect("kullanici.aspx?uname=" + user.ToString());
+                            if (user.ToString() == senderValue.ToString())
+                            {
+                                object question = dt.Rows[0]["question"];
+                                object true_answer = dt.Rows[0]["true_answer"];
+                                object false_answer1 = dt.Rows[0]["false_answer1"];
+                                object false_answer2 = dt.Rows[0]["false_answer2"];
+                                object false_answer3 = dt.Rows[0]["false_answer3"];
+                                object category = dt.Rows[0]["category"];
+                                TextBox1.Text = question.ToString();
+                                TextBox2.Text = true_answer.ToString();
+                                TextBox3.Text = false_answer1.ToString();
+                                TextBox4.Text = false_answer2.ToString();
+                                TextBox5.Text = false_answer3.ToString();
+                                DropDownList1.Text = category.ToString();
+                                baglan.Close();
+                            }
+                            else
+                            {
+                                Response.Redirect("kullanici.aspx?uname=" + user.ToString());
+                            }
                         }
                     }
 

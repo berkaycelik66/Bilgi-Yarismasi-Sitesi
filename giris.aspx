@@ -10,38 +10,47 @@
         .auto-style1 {
             width: 100%;
         }
+
         .auto-style2 {
             height: 18px;
             text-align: center;
         }
+
         .auto-style3 {
             height: 28px;
             text-align: center;
         }
+
         .auto-style4 {
             text-align: center;
         }
+
         .auto-style5 {
             text-align: right;
             width: 502px;
         }
+
         .auto-style6 {
             height: 18px;
             text-align: right;
             width: 502px;
         }
+
         .auto-style7 {
             height: 28px;
             text-align: right;
             width: 502px;
         }
+
         .auto-style8 {
             text-align: left;
         }
+
         .auto-style9 {
             height: 18px;
             text-align: left;
         }
+
         .auto-style10 {
             height: 28px;
             text-align: left;
@@ -54,13 +63,11 @@
         <div id="header">
             <table>
                 <tr>
-                    <td>
+                    <td class="logo">
                         <a href="anasayfa.aspx">
-                            <img
-                                src="https://www.bilgiyarismasi.com/images/yarisma-logo.jpg"
-                                alt="Logo" class="auto-style1" />
+                            <span class="actual-text">&nbsp;BİLGİYARIŞMASI&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;BİLGİYARIŞMASI&nbsp;</span>
                         </a>
-
                     </td>
                     <td style="width: 250px"></td>
                     <td>

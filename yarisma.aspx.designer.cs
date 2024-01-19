@@ -228,6 +228,6 @@ namespace YarismaSitesi
         /// Otomatik olarak oluşturulan alan.
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button5;
+        protected global::System.Web.UI.HtmlControls.HtmlButton Button5;
     }
 }

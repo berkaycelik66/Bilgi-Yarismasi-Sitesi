@@ -15,11 +15,10 @@
         <div id="header">
             <table>
                 <tr>
-                    <td>
+                    <td class="logo">
                         <a href="anasayfa.aspx">
-                            <img
-                                src="https://www.bilgiyarismasi.com/images/yarisma-logo.jpg"
-                                alt="Logo" class="auto-style1" />
+                            <span class="actual-text">&nbsp;BİLGİYARIŞMASI&nbsp;</span>
+                            <span aria-hidden="true" class="hover-text">&nbsp;BİLGİYARIŞMASI&nbsp;</span>
                         </a>
 
                     </td>
@@ -40,8 +39,8 @@
                                     <a href='<%= ResolveUrl("bilgilerimi-guncelle.aspx?id=" + Session["id"]) %>'>Bilgilerim</a>
 
                                     <%if (Session["task"].Equals("admin"))
-                                    { %>
-                                        <a href='admin.aspx'>Admin Panel</a>
+                                        { %>
+                                    <a href='admin.aspx'>Admin Panel</a>
                                     <%} %>
                                     <a href="cikis.aspx">Çıkış Yap</a>
                                 </div>

@@ -27,12 +27,50 @@
         <tr>
             <td class="auto-style2">KATEGORİ SEÇ</td>
         </tr>
-        <tr>
+        <tr class="light-button">
             <td>
-                <asp:Button ID="btnGenelSorular" runat="server" Text="GENEL SORULAR" OnClick="btnGenelSorular_Click" />
-                <asp:Button ID="btnSanat" runat="server" Text="SANAT" OnClick="btnSanat_Click" />
-                <asp:Button ID="btnSpor" runat="server" Text="SPOR" OnClick="btnSpor_Click" />
-                <asp:Button ID="btnTarih" runat="server" Text="TARİH" OnClick="btnTarih_Click" />
+                <button class="bt" id="btnGenelSorular" runat="server" onserverclick="btnGenelSorular_Click">
+                    <div class="light-holder">
+                        <div class="dot"></div>
+                        <div class="light"></div>
+                    </div>
+                    <div class="button-holder">
+                        <p>GENEL</p>
+                    </div>
+                </button>
+            </td>
+            <td>
+                <button class="bt" id="btnSanat" runat="server" onseverclick="btnSanat_Click">
+                    <div class="light-holder">
+                        <div class="dot"></div>
+                        <div class="light"></div>
+                    </div>
+                    <div class="button-holder">
+                        <p>SANAT</p>
+                    </div>
+                </button>
+            </td>
+            <td>
+                <button class="bt" id="btnSpor" runat="server" onserverclick="btnSpor_Click">
+                    <div class="light-holder">
+                        <div class="dot"></div>
+                        <div class="light"></div>
+                    </div>
+                    <div class="button-holder">
+                        <p>SPOR</p>
+                    </div>
+                </button>
+            </td>
+            <td>
+                <button class="bt" id="btnTarih" runat="server" onserverclick="btnTarih_Click">
+                    <div class="light-holder">
+                        <div class="dot"></div>
+                        <div class="light"></div>
+                    </div>
+                    <div class="button-holder">
+                        <p>TARİH</p>
+                    </div>
+                </button>
             </td>
         </tr>
     </table>
