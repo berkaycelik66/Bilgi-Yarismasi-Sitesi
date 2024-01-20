@@ -55,12 +55,17 @@
             height: 28px;
             text-align: left;
         }
+
+        .auto-style11 {
+            height: 25px;
+            width: 80px;
+        }
     </style>
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <div id="header">
+        <div class="header">
             <table>
                 <tr>
                     <td class="logo">
@@ -72,8 +77,8 @@
                     <td style="width: 250px"></td>
                     <td>
 
-                        <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" />
-                        <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" />
+                        <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio" />
+                        <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" CssClass="btnio" />
 
                     </td>
                 </tr>
@@ -119,7 +124,7 @@
                     <td class="auto-style5">&nbsp;</td>
                     <td class="auto-style4">&nbsp;</td>
                     <td class="auto-style8">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Kayıt Ol" />
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Kayıt Ol" CssClass="btnio auto-style11" />
                     </td>
                 </tr>
                 <tr>

@@ -1,9 +1,9 @@
 body {
-    background-color: aquamarine;
+    background-color: mediumaquamarine;
     font-family: Arial, sans-serif;
 }
 
-#header {
+.header {
     background-image: linear-gradient(to bottom, #03122e, #001b5b);
     top: 0px;
     width: 1200px;
@@ -16,15 +16,27 @@ body {
     border-radius: 0px 0px 30px 30px;
 }
 
+    .header table {
+        width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+    }
+
+        .header table td {
+            width: 160px;
+        }
+
 #content {
     background-image: linear-gradient(to bottom, #fff, #fff);
     width: 1150px;
-    height: auto;
+    height: 470px;
     margin-top: 135px;
     font-size: 15px;
     background-color: beige;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: auto;
 }
 
 table {
@@ -40,7 +52,12 @@ table {
 
     .header-link a {
         color: white;
+        font-family: "Arial";
     }
+
+        .header-link a:hover {
+            color: #37FF8B;
+        }
 
 .top-list {
     text-align: center;
@@ -50,9 +67,9 @@ table {
         color: #001b5b;
     }
 
-a:hover {
-    color: crimson;
-    background-color: white;
+.admin{
+    width: 100%;
+    text-align: center;
 }
 
 .admin a {
@@ -67,17 +84,20 @@ a {
 
 /*Dropdown in Header*/
 .dropdown {
-    float: left;
+    border-radius: 5px;
+    float: none;
     overflow: hidden;
 }
 
     .dropdown .dropbtn {
-        font-size: 25px;
+        height: 40px;
+        font-size: 22px;
         border: none;
         outline: none;
         color: black;
-        padding: 14px 16px;
+        padding: 7px 16px;
         margin: 0;
+        border-radius: 5px;
     }
 
 .dropdown-content {
@@ -88,6 +108,7 @@ a {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
     font-size: 15px;
+    border-radius: 5px;
 }
 
     .dropdown-content a {
@@ -96,14 +117,17 @@ a {
         padding: 12px 16px;
         text-decoration: none;
         display: block;
+        border-radius: 5px;
     }
 
         .dropdown-content a:hover {
             background-color: #ddd;
+            border-radius: 5px;
         }
 
 .dropdown:hover .dropdown-content {
     display: block;
+    border-radius: 5px;
 }
 
 /*Pagination Ýþlemi*/
@@ -147,7 +171,6 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
-
 /*Sil Linkleri Ýçin*/
 .btnsil a {
     width: 100px;
@@ -166,7 +189,7 @@ a {
     }
 
         .btnsil a .text {
-            transform: translateX(35px);
+            transform: translateX(30px);
             color: white;
             font-weight: bold;
         }
@@ -174,7 +197,7 @@ a {
         .btnsil a .icon {
             position: absolute;
             border-left: 1px solid #e41b1b;
-            transform: translateX(70px);
+            transform: translateX(60px);
             height: 25px;
             width: 25px;
             display: flex;
@@ -402,7 +425,6 @@ a {
     border: none;
     cursor: pointer;
 }
-
 /* button styling */
 .logo a {
     --border-right: 6px;
@@ -659,3 +681,377 @@ a {
             box-shadow: inset 0 0 0 100vmax var(--_c);
             color: #fff;
         }
+
+.btnio {
+    width: 100px;
+    height: 40px;
+    border: 3px solid #343a40;
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+    background: white !important;
+    font-weight: 550;
+    font-family: "Montserrat", sans-serif;
+}
+
+    .btnio:hover {
+        background: #343a40 !important;
+        color: white !important;
+    }
+
+.current-page {
+    color: white !important;
+    background-color: #001b5b;
+    font-weight: bold;
+    /* Add any other styling you want for the current page hyperlink */
+}
+
+.btngnclle {
+    position: relative;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #226602;
+    background-color: #226602;
+    overflow: hidden;
+}
+
+.btngnclle, .button__icon, .button__text {
+    transition: all 0.3s;
+}
+
+    .btngnclle .button__text {
+        transform: translateX(10px);
+        color: #fff;
+        font-weight: 600;
+    }
+
+    .btngnclle .button__icon {
+        position: absolute;
+        transform: translateX(82px);
+        height: 100%;
+        width: 30px;
+        background-color: #226602;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .btngnclle .button__icon:hover {
+            background: #349905;
+        }
+
+    .btngnclle .svg {
+        width: 20px;
+        fill: #fff;
+    }
+
+    .btngnclle:hover {
+        background: #349905;
+    }
+
+        .btngnclle:hover .button__text {
+            color: transparent;
+        }
+
+        .btngnclle:hover .button__icon {
+            width: 120px;
+            transform: translateX(-5px);
+        }
+
+    .btngnclle:active .button__icon {
+        background-color: #349905;
+    }
+
+    .btngnclle:active {
+        border: 1px solid #349905;
+    }
+
+.btnonay a {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #226602;
+}
+
+    .btnonay a, .btnonay a span {
+        transition: 200ms;
+    }
+
+        .btnonay a .text {
+            transform: translateX(10px);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btnonay a .icon {
+            position: absolute;
+            border-left: 1px solid #349905;
+            transform: translateX(70px);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnonay a svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        .btnonay a:hover {
+            background: #349905;
+        }
+
+            .btnonay a:hover .text {
+                color: transparent;
+            }
+
+            .btnonay a:hover .icon {
+                width: 100px;
+                border-left: none;
+                transform: translateX(0);
+            }
+
+        .btnonay a:focus {
+            outline: none;
+        }
+
+        .btnonay a:active .icon svg {
+            transform: scale(0.8);
+        }
+
+.btnengel a {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    background: #a61414;
+}
+
+    .btnengel a, .btnengel a span {
+        transition: 200ms;
+    }
+
+        .btnengel a .text {
+            transform: translateX(7px);
+            color: white;
+            font-weight: bold;
+        }
+
+        .btnengel a .icon {
+            position: absolute;
+            border-left: 1px solid #e41b1b;
+            transform: translateX(70px);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btnengel a svg {
+            width: 15px;
+            fill: #eee;
+        }
+
+        .btnengel a:hover {
+            background: #e62222;
+        }
+
+            .btnengel a:hover .text {
+                color: transparent;
+            }
+
+            .btnengel a:hover .icon {
+                width: 100px;
+                border-left: none;
+                transform: translateX(0);
+            }
+
+        .btnengel a:focus {
+            outline: none;
+        }
+
+        .btnengel a:active .icon svg {
+            transform: scale(0.8);
+        }
+
+.basla {
+    margin-top:50px;
+    position: relative;
+    width: 16em;
+    height: 6em;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.1s;
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    font-weight: bold;
+    color: #03122e;
+}
+    .basla:hover {
+        color: #22b35f;
+        cursor:pointer;
+    }
+
+#clip {
+    --color: #03122e;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border: 5px double var(--color);
+    box-shadow: inset 0px 0px 15px 15px #195480 ;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.arrow {
+    position: absolute;
+    transition: 0.2s;
+    background-color: #03122e;
+    top: 33.5%;
+    width: 14%;
+    height: 38%;
+}
+
+#leftArrow {
+    left: -15.1%;
+    -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+#rightArrow {
+    -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+    left: 105%;
+}
+
+.basla:hover #rightArrow {
+    background-color: #22b35f;
+    left: -15%;
+    animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+}
+
+.basla:hover #leftArrow {
+    background-color: #22b35f;
+    left: 105%;
+    animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+}
+
+.corner {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    background-color: #03122e;
+    box-shadow: inset 1px 1px 8px #03122e;
+    transform: scale(1) rotate(45deg);
+    transition: 0.2s;
+}
+
+#rightTop {
+    top: -1.98em;
+    left: 91%;
+}
+
+#leftTop {
+    top: -1.96em;
+    left: -3.0em;
+}
+
+#leftBottom {
+    top: 2.10em;
+    left: -2.15em;
+}
+
+#rightBottom {
+    top: 45%;
+    left: 88%;
+}
+
+.basla:hover #leftTop {
+    animation: 0.1s ease-in-out 0.05s both changeColor8, 0.2s linear 0.4s both lightEffect8;
+}
+
+.basla:hover #rightTop {
+    animation: 0.1s ease-in-out 0.15s both changeColor8, 0.2s linear 0.4s both lightEffect8;
+}
+
+.basla:hover #rightBottom {
+    animation: 0.1s ease-in-out 0.25s both changeColor8, 0.2s linear 0.4s both lightEffect8;
+}
+
+.basla:hover #leftBottom {
+    animation: 0.1s ease-in-out 0.35s both changeColor8, 0.2s linear 0.4s both lightEffect8;
+}
+
+.basla:hover .corner {
+    transform: scale(1.25) rotate(45deg);
+}
+
+.basla:hover #clip {
+    animation: 0.2s ease-in-out 0.55s both greenLight8;
+    --color: #22b35f;
+}
+
+@keyframes changeColor8 {
+    from {
+        background-color: #03122e;
+    }
+
+    to {
+        background-color: #22b35f;
+    }
+}
+
+@keyframes lightEffect8 {
+    from {
+        box-shadow: 1px 1px 5px #03122e;
+    }
+
+    to {
+        box-shadow: 0 0 2px #22b35f;
+    }
+}
+
+@keyframes greenLight8 {
+    from {
+    }
+
+    to {
+        box-shadow: inset 0px 0px 15px 15px #22b35f;
+    }
+}
+
+@keyframes leftArrow8 {
+    from {
+        transform: translate(0px);
+    }
+
+    to {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes rightArrow8 {
+    from {
+        transform: translate(0px);
+    }
+
+    to {
+        transform: translateX(-10px);
+    }
+}

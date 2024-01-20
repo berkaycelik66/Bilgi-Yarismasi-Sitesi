@@ -3,6 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+        function preventButtonClick(event) {
+            event.preventDefault(); // Prevent the default behavior of the button
+        }
+    </script>
     <meta charset="utf-8" />
     <title>Bilgi Yarışması</title>
     <link rel="stylesheet" href="stil.css" />
@@ -12,8 +17,8 @@
 
 <body>
     <form id="form1" runat="server">
-        <div id="header">
-            <table>
+        <div class="header">
+            <table >
                 <tr>
                     <td class="logo">
                         <a href="anasayfa.aspx">
@@ -25,13 +30,13 @@
                     <td style="width: 250px"></td>
                     <td>
                         <asp:Panel ID="pnlGiris" runat="server">
-                            <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" />
-                            <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" />
+                            <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio"/>
+                            <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" CssClass="btnio"/>
                         </asp:Panel>
 
                         <asp:Panel ID="pnlUser" runat="server">
                             <div class="dropdown">
-                                <button class="dropbtn">
+                                <button class="dropbtn" onclick="preventButtonClick(event)">
                                     <asp:Label ID="lblKullaniciAdi" Text="" runat="server"></asp:Label><i class="fa fa-caret-down"></i>
                                 </button>
                                 <div class="dropdown-content">

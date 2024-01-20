@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class admin_sorular : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         int soruSayfa;
         protected void Page_Load(object sender, EventArgs e)
@@ -60,7 +60,10 @@ namespace YarismaSitesi
                 HyperLink hyper = new HyperLink();
                 hyper.Text = i.ToString();
                 hyper.NavigateUrl = "admin-sorular.aspx?soruSayfa=" + i;
-
+                if (i == soruSayfa)
+                {
+                    hyper.CssClass = "current-page";
+                }
                 pnlsyf.Controls.Add(hyper);
             }
 

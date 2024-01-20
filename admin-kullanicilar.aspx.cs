@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class admin_kullanicilar : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -57,7 +57,10 @@ namespace YarismaSitesi
                 HyperLink hyper = new HyperLink();
                 hyper.Text = i.ToString();
                 hyper.NavigateUrl = "admin-kullanicilar.aspx?&userSayfa=" + i;
-
+                if (i == userSayfa)
+                {
+                    hyper.CssClass = "current-page";
+                }
                 pnlsyf2.Controls.Add(hyper);
             }
 
