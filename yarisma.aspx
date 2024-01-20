@@ -2,32 +2,44 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-        }
+    .auto-style1 {
+        text-align: center;
+    }
 
-        .auto-style2 {
-            width: 100%;
-        }
+    .auto-style2 {
+        width: 100%;
+    }
 
-        .auto-style3 {
-            height: 22px;
-            text-align: center;
-        }
+    .auto-style3 {
+        height: 22px;
+        text-align: center;
+    }
 
-        .auto-style4 {
-            height: 134px;
-            text-align: center;
-        }
+    .auto-style4 {
+        height: 134px;
+        text-align: center;
+    }
 
-        .auto-style5 {
-            text-align: right;
-            float: right;
-        }
+    .auto-style5 {
+        text-align: right;
+        float: right;
+    }
 
-        .auto-style6 {
-            text-align: left;
-        }
+    .auto-style6 {
+        text-align: left;
+    }
+
+    .auto-style7 {
+        width: 100%;
+        background-color: lightgray;
+        touch-action: manipulation;
+        transition: all 0.3s;
+        transform: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border-radius : 5px;
+    }
+
     </style>
     <script>
         // Tarayıcı geri tuşu algılandığında çalışacak fonksiyon
@@ -51,19 +63,32 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="yarisma-style">
-        <table class="auto-style2">
+        <table style="text-align: center">
             <tr>
-                <asp:Label ID="Soru1" runat="server" Text=" 1 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru2" runat="server" Text="2 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru3" runat="server" Text="3 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru4" runat="server" Text="4 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru5" runat="server" Text="5 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru6" runat="server" Text="6 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru7" runat="server" Text="7 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru8" runat="server" Text="8 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru9" runat="server" Text="9 " CssClass="auto-style2"></asp:Label>
-                <asp:Label ID="Soru10" runat="server" Text="10 " CssClass="auto-style2"></asp:Label>
+                <td>
+                    <asp:Button ID="Soru1" runat="server" Text="1" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru2" runat="server" Text="2" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru3" runat="server" Text="3" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru4" runat="server" Text="4" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru5" runat="server" Text="5" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru6" runat="server" Text="6" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru7" runat="server" Text="7" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru8" runat="server" Text="8" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru9" runat="server" Text="9" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
+                <td>
+                    <asp:Button ID="Soru10" runat="server" Text="10" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
             </tr>
+        </table>
+        <table class="auto-style2">
+
             <tr>
                 <td class="auto-style3">
                     <asp:ScriptManager ID="ScriptManager1" runat="server" />

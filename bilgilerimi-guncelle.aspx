@@ -50,6 +50,11 @@
             height: 28px;
             text-align: left;
         }
+
+        .auto-style11 {
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -116,9 +121,11 @@
                 <td class="auto-style4" colspan="2">Hesabı Gerçekten Silmek İstiyor Musunuz?</td>
             </tr>
             <tr>
-                <td class="auto-style4">
-                    <asp:Button ID="Button2" runat="server" Text="Evet" OnClick="Button2_Click" />
-                    <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="Hayır" />
+                <td class="auto-style11 yesNO">
+                    <button id="Button2" runat="server" onserverclick="Button2_Click">
+                        <span class="text">Evet</span></button>
+                    <button id="Button3" runat="server" onserverclick="Button3_Click">
+                        <span class="text">Hayır</span></button>
                 </td>
             </tr>
         </table>

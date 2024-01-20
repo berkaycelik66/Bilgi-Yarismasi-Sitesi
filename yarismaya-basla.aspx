@@ -40,7 +40,7 @@
                 </button>
             </td>
             <td>
-                <button class="bt" id="btnSanat" runat="server" onseverclick="btnSanat_Click">
+                <button class="bt" id="btnSanat" runat="server" onserverclick="btnSanat_Click">
                     <div class="light-holder">
                         <div class="dot"></div>
                         <div class="light"></div>
