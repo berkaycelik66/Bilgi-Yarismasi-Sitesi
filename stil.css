@@ -60,6 +60,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 .tableheader__item {
 }
 
@@ -72,6 +73,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
     .table-row:nth-child(even) {
         background-color: lightgray; /* Light gray for even rows */
     }
@@ -79,6 +81,7 @@ body {
     .table-row:nth-child(odd) {
         background-color: whitesmoke; /* Dark gray for odd rows */
     }
+
     .table-row a {
         color: #001b5b;
     }
@@ -96,6 +99,7 @@ body {
 .header__item {
     text-transform: uppercase;
 }
+
 .table2 {
     width: 99%;
     margin-left: auto;
@@ -136,6 +140,7 @@ body {
     .table2-row a {
         color: #001b5b;
     }
+
 .header-link {
     text-align: center;
     color: #fff;
@@ -1148,3 +1153,46 @@ a {
         transform: translateX(-10px);
     }
 }
+
+
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .row .label {
+        padding: 20px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+    }
+    .row .label button{
+        margin-left:25px;
+        margin-right:25px;
+    }
+        .row .label button:hover {
+            cursor: pointer;
+            background: #22b35f;
+        }
+
+        .row .label .icon-box {
+            display: flex;
+            width: 120px;
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+            background-color: #031a45;
+            color: #fff;
+            border-radius: 3px;
+            font-size: 21px;
+            transition: 0.5s;
+            user-select: none;
+        }
+
+    .row .label .icon-box span {
+        margin: 5px;
+        font-size: 18px;
+    }
+

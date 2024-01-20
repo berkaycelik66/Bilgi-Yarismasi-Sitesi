@@ -21,57 +21,37 @@
             width: 230px;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table class="auto-style1">
-        <tr>
-            <td class="auto-style2">KATEGORİ SEÇ</td>
-        </tr>
-        <tr class="light-button">
-            <td>
-                <button class="bt" id="btnGenelSorular" runat="server" onserverclick="btnGenelSorular_Click">
-                    <div class="light-holder">
-                        <div class="dot"></div>
-                        <div class="light"></div>
-                    </div>
-                    <div class="button-holder">
-                        <p>GENEL</p>
-                    </div>
+    <h1 class="auto-style2">KATEGORİ SEÇ</h1>
+
+        <div class="row">
+            <div class="label">
+                <button class="icon-box" runat="server" onserverclick="btnGenelSorular_Click">
+                    <i class="fa-solid fa-question"></i>
+                    <span>Genel</span>
                 </button>
-            </td>
-            <td>
-                <button class="bt" id="btnSanat" runat="server" onserverclick="btnSanat_Click">
-                    <div class="light-holder">
-                        <div class="dot"></div>
-                        <div class="light"></div>
-                    </div>
-                    <div class="button-holder">
-                        <p>SANAT</p>
-                    </div>
+
+                <button class="icon-box" runat="server" onserverclick="btnSanat_Click">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Sanat</span>
                 </button>
-            </td>
-            <td>
-                <button class="bt" id="btnSpor" runat="server" onserverclick="btnSpor_Click">
-                    <div class="light-holder">
-                        <div class="dot"></div>
-                        <div class="light"></div>
-                    </div>
-                    <div class="button-holder">
-                        <p>SPOR</p>
-                    </div>
+
+                <button class="icon-box" runat="server" onserverclick="btnSpor_Click">
+                    <i class="fa-brands fa-dribbble"></i>
+                    <span>Spor</span>
                 </button>
-            </td>
-            <td>
-                <button class="bt" id="btnTarih" runat="server" onserverclick="btnTarih_Click">
-                    <div class="light-holder">
-                        <div class="dot"></div>
-                        <div class="light"></div>
-                    </div>
-                    <div class="button-holder">
-                        <p>TARİH</p>
-                    </div>
+
+                <button class="icon-box" runat="server" onserverclick="btnTarih_Click">
+                    <i class="fa-solid fa-book"></i>
+                    <span>Tarih</span>
                 </button>
-            </td>
-        </tr>
-    </table>
+
+                <button class="icon-box" runat="server">
+                    <i class="fa-solid fa-flask"></i>
+                    <span>Bilim</span>
+                </button>
+            </div>
+        </div>
 </asp:Content>
