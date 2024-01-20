@@ -13,7 +13,7 @@ body {
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 30px 30px 30px 30px;
+    border-radius: 0px 0px 30px 30px;
 }
 
 #content {
@@ -445,7 +445,7 @@ a {
     padding-left: 1.2em;
     font-size: 17px;
     font-weight: 500;
-    border-radius: 0.9em;
+    border-radius: 5px;
     border: none;
     letter-spacing: 0.05em;
     display: flex;
@@ -467,7 +467,7 @@ a {
         justify-content: center;
         height: 2.2em;
         width: 2.2em;
-        border-radius: 0.7em;
+        border-radius: 5px;
         box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
         right: 0.3em;
         transition: all 0.3s;
@@ -514,7 +514,7 @@ a {
         font-weight: 700;
         transition: 300ms;
         outline: #0f0f0f 2px solid;
-        outline-offset: 20;
+
     }
 
         .light-button button.bt .button-holder svg {
@@ -538,7 +538,7 @@ a {
             width: 10px;
             height: 10px;
             background-color: #0a0a0a;
-            border-radius: 10px;
+            border-radius: 5px;
             z-index: 2;
         }
 
@@ -566,3 +566,27 @@ a {
         background: linear-gradient( 180deg, rgb(233, 57, 26) 0%, rgba(200, 20, 100, 0) 75%, rgba(200, 20, 100, 0) 100% );
     }
 
+.btnscnk {
+    background-color: #eee;
+    padding: 0.8rem;
+    font-size: 1rem;
+    width: 10em;
+    border-radius: 5px;
+    color: black !important; /* !important ekleyerek belki deðiþiklikleri zorla uygulayabilirsiniz */
+    cursor: pointer;
+}
+
+    .btnscnk:active {
+        color: black !important;
+        transform: translateY(0.2rem);
+    }
+
+    .btnscnk:hover:not(:disabled) {
+        background: gray;
+        color: black;
+    }
+
+    .btnscnk:disabled {
+        cursor: auto;
+        color: white;
+    }

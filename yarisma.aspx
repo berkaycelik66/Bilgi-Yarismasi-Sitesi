@@ -22,6 +22,7 @@
 
         .auto-style5 {
             text-align: right;
+            float: right;
         }
 
         .auto-style6 {
@@ -50,7 +51,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="yarisma-style">
-        <table class="auto-style2" border="1">
+        <table class="auto-style2">
             <tr>
                 <asp:Label ID="Soru1" runat="server" Text=" 1 " CssClass="auto-style2"></asp:Label>
                 <asp:Label ID="Soru2" runat="server" Text="2 " CssClass="auto-style2"></asp:Label>
@@ -88,26 +89,26 @@
             </tr>
             <tr>
                 <td class="top-list">
-                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button_Click" CssClass="yarisma-style-button" />
+                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button_Click" CssClass="btnscnk yarisma-style-button" />
                 </td>
                 <td class="top-list">
-                    <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button_Click" CssClass="yarisma-style-button" />
+                    <asp:Button ID="Button2" runat="server" Text="Button" OnClick="Button_Click" CssClass="btnscnk yarisma-style-button" />
                 </td>
             </tr>
             <tr>
                 <td class="top-list">
-                    <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button_Click" CssClass="yarisma-style-button" />
+                    <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button_Click" CssClass="btnscnk yarisma-style-button" />
                 </td>
                 <td class="top-list">
-                    <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button_Click" CssClass="yarisma-style-button" />
+                    <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button_Click" CssClass="btnscnk yarisma-style-button" />
                 </td>
             </tr>
             <tr>
                 <td class="auto-style6">
                     <asp:Label ID="Label4" runat="server"></asp:Label>
                 </td>
-                <td class="auto-style5">
-                    <button class="btnnext" id="Button5" runat="server" onserverclick="Button5_Click" visible="false">
+                <td>
+                    <button class="btnnext auto-style5" id="Button5" runat="server" onserverclick="Button5_Click" visible="false">
                         Sıradaki Soru<div class="icon">
                             <svg
                                 height="24"
