@@ -145,25 +145,25 @@ namespace YarismaSitesi
                         Soru3.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 3:
-                        Soru1.BackColor = System.Drawing.Color.Yellow;
+                        Soru4.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 4:
-                        Soru2.BackColor = System.Drawing.Color.Yellow;
+                        Soru5.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 5:
-                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        Soru6.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 6:
-                        Soru1.BackColor = System.Drawing.Color.Yellow;
+                        Soru7.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 7:
-                        Soru2.BackColor = System.Drawing.Color.Yellow;
+                        Soru8.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 8:
-                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        Soru9.BackColor = System.Drawing.Color.Yellow;
                         break;
                     case 9:
-                        Soru3.BackColor = System.Drawing.Color.Yellow;
+                        Soru10.BackColor = System.Drawing.Color.Yellow;
                         break;
                 }
                 Question currentQuestion = questionBatch[currentQuestionIndex];
@@ -304,25 +304,25 @@ namespace YarismaSitesi
                         Soru3.BackColor = System.Drawing.Color.Red;
                         break;
                     case 3:
-                        Soru1.BackColor = System.Drawing.Color.Red;
+                        Soru4.BackColor = System.Drawing.Color.Red;
                         break;
                     case 4:
-                        Soru2.BackColor = System.Drawing.Color.Red;
+                        Soru5.BackColor = System.Drawing.Color.Red;
                         break;
                     case 5:
-                        Soru3.BackColor = System.Drawing.Color.Red;
+                        Soru6.BackColor = System.Drawing.Color.Red;
                         break;
                     case 6:
-                        Soru1.BackColor = System.Drawing.Color.Red;
+                        Soru7.BackColor = System.Drawing.Color.Red;
                         break;
                     case 7:
-                        Soru2.BackColor = System.Drawing.Color.Red;
+                        Soru8.BackColor = System.Drawing.Color.Red;
                         break;
                     case 8:
-                        Soru3.BackColor = System.Drawing.Color.Red;
+                        Soru9.BackColor = System.Drawing.Color.Red;
                         break;
                     case 9:
-                        Soru3.BackColor = System.Drawing.Color.Red;
+                        Soru10.BackColor = System.Drawing.Color.Red;
                         break;
                 }
                 questionBatch.Clear();
@@ -352,25 +352,25 @@ namespace YarismaSitesi
                     Soru3.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 3:
-                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru4.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 4:
-                    Soru2.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru5.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 5:
-                    Soru3.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru6.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 6:
-                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru7.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 7:
-                    Soru2.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru8.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 8:
-                    Soru3.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru9.BackColor = System.Drawing.Color.ForestGreen;
                     break;
                 case 9:
-                    Soru1.BackColor = System.Drawing.Color.ForestGreen;
+                    Soru10.BackColor = System.Drawing.Color.ForestGreen;
                     break;
             }
             InitializeQuestion();     

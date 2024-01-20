@@ -4,8 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <a href="admin-sorular.aspx">SORULAR</a> |
-    <a href="admin-kullanicilar.aspx">KULLANICILAR</a>
-
+    <div class="paginationPanel">
+        <a href="admin-sorular.aspx">SORULAR</a>
+        <a href="admin-kullanicilar.aspx">KULLANICILAR</a>
+    </div>
 </asp:Content>

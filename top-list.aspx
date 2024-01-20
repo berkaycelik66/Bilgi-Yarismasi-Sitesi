@@ -20,28 +20,29 @@
     <div class="top-list">
         <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a>
     </div>
-    <table border="1" class="auto-style1">
+        
+    <div class="table">
 
-        <tr>
-            <td>Username</td>
-            <td>Points</td>
-            <td>Date</td>
-            <td>Category</td>
-        </tr>
+        <div class="table-header">
+            <div class="tableheader__item">Username</div>
+            <div class="tableheader__item">Points</div>
+            <div class="tableheader__item">Date</div>
+            <div class="tableheader__item">Category</div>
+        </div>
         <asp:Repeater ID="Repeater1" runat="server" >
             <ItemTemplate>
-                <tr>
-                    <td>
+                <div class="table-row">
+                    <div class="table-data">
                         <a href='<%# "kullanici.aspx?uname=" + Eval("username") %>'>
                             <%#Eval("username")%>
                         </a>
-                    </td>
-                    <td><%#Eval("points")%></td>
-                    <td><%#Eval("dates")%></td>
-                    <td><%#Eval("category")%></td>
-                </tr>
+                    </div>
+                    <div class="table-data"><%#Eval("points")%></div>
+                    <div class="table-data"><%#Eval("dates")%></div>
+                    <div class="table-data"><%#Eval("category")%></div>
+                </div>
             </ItemTemplate>
         </asp:Repeater>
-    </table>
+    </div>
     &nbsp;
 </asp:Content>
