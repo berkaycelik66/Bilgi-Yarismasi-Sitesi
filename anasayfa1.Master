@@ -11,6 +11,7 @@
     <meta charset="utf-8" />
     <title>Bilgi Yarışması</title>
     <link rel="stylesheet" href="stil.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -18,7 +19,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="header">
-            <table >
+            <table>
                 <tr>
                     <td class="logo">
                         <a href="anasayfa.aspx">
@@ -30,8 +31,8 @@
                     <td style="width: 250px"></td>
                     <td>
                         <asp:Panel ID="pnlGiris" runat="server">
-                            <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio"/>
-                            <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" CssClass="btnio"/>
+                            <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio" />
+                            <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" CssClass="btnio" />
                         </asp:Panel>
 
                         <asp:Panel ID="pnlUser" runat="server">
