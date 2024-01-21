@@ -35,7 +35,7 @@
                 <div class="tableheader__item">Date</div>
                 <div class="tableheader__item">Category</div>
                 <%
-                    if (Session["username"].ToString() == Request.QueryString["uname"])
+                    if (Session["username"]!= null && Session["username"].ToString() == Request.QueryString["uname"])
                     {
 
                 %>
@@ -54,7 +54,7 @@
 
             <!--Eğer kullanıcı başka birinin profiline giriyorsa, profiline girdiği kullanıcının verilerini silememesi gerekir.-->
             <%
-                if (Session["username"].ToString() == Request.QueryString["uname"])
+                if (Session["username"]!= null && Session["username"].ToString() == Request.QueryString["uname"])
                 {
 
             %>
