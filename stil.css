@@ -86,18 +86,9 @@ body {
         color: #001b5b;
     }
 
-/* Set border color for all rows */
-.table-row {
-    border-color: #03122e;
-}
-
 .table-data, .tableheader__item {
     flex: 1 1 30%;
     text-align: center;
-}
-
-.header__item {
-    text-transform: uppercase;
 }
 
 .table2 {
@@ -109,9 +100,8 @@ body {
 
 .table2-header {
     text-align: center;
-    padding: 10px 0 0;
     width: 100%;
-    height: 30px;
+    height: 40px;
     border-radius: 5px 5px 0px 0px;
     color: white;
     background-image: linear-gradient(to bottom, #03122e, #001b5b);
@@ -122,7 +112,6 @@ body {
 .table2-row {
     text-align: center;
     border-color: #03122e;
-    padding: 5px 0px 4px 0px;
     width: 100%;
     background-color: lightgray;
     margin-left: auto;
@@ -1154,8 +1143,6 @@ a {
     }
 }
 
-
-
 .row {
     display: flex;
     justify-content: center;
@@ -1165,7 +1152,6 @@ a {
     .row .label {
         padding: 20px;
         display: flex;
-        position: relative;
         overflow: hidden;
     }
     .row .label button{

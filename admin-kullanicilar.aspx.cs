@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class admin_kullanicilar : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -38,7 +38,7 @@ namespace YarismaSitesi
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = dt.DefaultView;
             pds.AllowPaging = true; //Sayfalama aktif olması için
-            pds.PageSize = 2; //Bir sayfadaki kayıt sayısı
+            pds.PageSize = 8; //Bir sayfadaki kayıt sayısı
 
             int userSayfa;
             if (Request.QueryString["userSayfa"] != null)

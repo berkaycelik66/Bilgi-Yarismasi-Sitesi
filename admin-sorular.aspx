@@ -7,7 +7,7 @@
         <a class="current-page" href="admin-sorular.aspx">SORULAR</a>
         <a href="admin-kullanicilar.aspx">KULLANICILAR</a>
     </div>
-    <table class="table2">
+    <table class="table2" border="0">
 
         <tr class="table2-header">
             <td >Kategori</td>
