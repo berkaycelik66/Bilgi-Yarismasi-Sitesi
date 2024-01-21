@@ -13,8 +13,8 @@ namespace YarismaSitesi
 {
     public partial class yarisma : System.Web.UI.Page
     {
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         static List<Question> questionBatch;
         static int currentQuestionIndex;
@@ -40,13 +40,7 @@ namespace YarismaSitesi
                 Button2.BackColor = default(Color);
                 Button3.BackColor = default(Color);
                 Button4.BackColor = default(Color);
-                if (Session["RemainingTime"].ToString() == "0")
-                {
-                    HyperLink hyperLink = new HyperLink();
-                    hyperLink.NavigateUrl = "yarismaya-basla.aspx";
-                    hyperLink.Text = "Tekrar Başla";
-                    Label5.Controls.Add(hyperLink);
-                }
+                
             }
             else
             {
@@ -200,9 +194,9 @@ namespace YarismaSitesi
                 // The user has completed all questions in the batch
                 UpdateTimer.Enabled = false;
                 Label3.Text = "Tebrikler! Bütün Soruları Tamamladınız.";
+                Button6.Visible = true;
                 if (puan != 0 && Session["username"] != null)
                 {
-                    Button6.Visible = true;
                     DateTime now = DateTime.Now;
 
                     // ClickInfo nesnesini oluştur ve tarih bilgisini at
@@ -214,15 +208,12 @@ namespace YarismaSitesi
                     // Bilgileri sessiona at
                     Session["ClickInfo"] = clickInfo;
                 }
+                Button7.Visible = true;
                 Button1.Visible = false;
                 Button2.Visible = false;
                 Button3.Visible = false;
                 Button4.Visible = false;
                 Button5.Visible = false;
-                HyperLink hyperLink = new HyperLink();
-                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
-                hyperLink.Text = "Tekrar Başla";
-                Label5.Controls.Add(hyperLink);
                 questionBatch.Clear();
                 currentQuestionIndex = questionBatch.Count();
             }
@@ -274,9 +265,10 @@ namespace YarismaSitesi
                 UpdateTimer.Enabled = false;
                 // Add logic for incorrect answer if needed
                 Label3.Text = "Yanlış Cevap Verdiniz. Yarışma Sonlanmıştır.";
+                Button6.Visible = true;
                 if (puan != 0 && Session["username"] != null)
                 {
-                    Button6.Visible = true;
+                    
                     DateTime now = DateTime.Now;
 
                     // ClickInfo nesnesini oluştur ve tarih bilgisini at
@@ -288,6 +280,7 @@ namespace YarismaSitesi
                     // Bilgileri sessiona at
                     Session["ClickInfo"] = clickInfo;
                 }
+                Button7.Visible = true;
                 Button1.OnClientClick = "return false";
                 Button2.OnClientClick = "return false";
                 Button3.OnClientClick = "return false";
@@ -326,14 +319,13 @@ namespace YarismaSitesi
                         break;
                 }
                 questionBatch.Clear();
-                currentQuestionIndex = questionBatch.Count();
-                HyperLink hyperLink = new HyperLink();
-                hyperLink.NavigateUrl = "yarismaya-basla.aspx";
-                hyperLink.Text = "Tekrar Başla";
-                Label5.Controls.Add(hyperLink);    
+                currentQuestionIndex = questionBatch.Count();  
             }
         }
-
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("yarismaya-basla.aspx");
+        }    
         protected void Button5_Click(object sender, EventArgs e)
         {
             Button1.OnClientClick = "return true";
@@ -445,9 +437,10 @@ namespace YarismaSitesi
                         Soru3.BackColor = System.Drawing.Color.Red;
                         break;
                 }
+                Button6.Visible = true;
                 if (puan != 0 && Session["username"] != null)
                 {
-                    Button6.Visible = true;
+                    
                     DateTime now = DateTime.Now;
 
                     // ClickInfo nesnesini oluştur ve tarih bilgisini at
@@ -458,6 +451,10 @@ namespace YarismaSitesi
 
                     // Bilgileri sessiona at
                     Session["ClickInfo"] = clickInfo;
+                }
+                if (Session["RemainingTime"].ToString() == "0")
+                {
+                    Button7.Visible = true;
                 }
                 Button1.Visible = false;
                 Button2.Visible = false;
@@ -472,32 +469,46 @@ namespace YarismaSitesi
         }
         protected void Button6_Click(object sender, EventArgs e)
         {
-            // ClickInfo nesnesini Session'dan al
-            ClickInfo clickInfo = (ClickInfo)Session["ClickInfo"];
-
-            // Kullanıcı adı, puan ve kategori bilgilerini al
-            string user = Session["username"].ToString();
-             // GetPuan fonksiyonunu sizin puan bilgisini nasıl aldığınıza göre uyarlayın
-            string category = Session["ctgkayit"].ToString();
-
-            // SQL sorgusunu parametre kullanarak oluştur
-            string query = "INSERT INTO pointsList (username, points, dates, category) VALUES (@Username, @Points, @Dates, @Category)";
-
-            // SqlCommand ve SqlConnection nesnelerini kullan
-            using (SqlCommand cmd = new SqlCommand(query, baglan))
+            if (Session["username"] == null)
             {
-                // Parametreleri ekleyerek SQL sorgusunu güvenli hale getir
-                cmd.Parameters.AddWithValue("@Username", user);
-                cmd.Parameters.AddWithValue("@Points", puan);
-                cmd.Parameters.AddWithValue("@Dates", clickInfo.ClickDateTime);
-                cmd.Parameters.AddWithValue("@Category", category);
-
-                // Bağlantıyı aç ve sorguyu çalıştır
-                baglan.Open();
-                cmd.ExecuteNonQuery();
-                baglan.Close(); 
+                Label5.Text = "Üzgünüz.Giriş Yapılmadan Yapılan Yarışma Sonuçları Kaydedilemez.";
+                Label5.BackColor = System.Drawing.Color.Red;
             }
-            Response.Redirect("kullanici.aspx?uname=" + user);
+            else if(puan == 0)
+            {
+                Label5.Text = "Puanı 0 Olan Yarışma Sonuçları Kaydedilemez.";
+                Label5.BackColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                // ClickInfo nesnesini Session'dan al
+                ClickInfo clickInfo = (ClickInfo)Session["ClickInfo"];
+
+                // Kullanıcı adı, puan ve kategori bilgilerini al
+                string user = Session["username"].ToString();
+                // GetPuan fonksiyonunu sizin puan bilgisini nasıl aldığınıza göre uyarlayın
+                string category = Session["ctgkayit"].ToString();
+
+                // SQL sorgusunu parametre kullanarak oluştur
+                string query = "INSERT INTO pointsList (username, points, dates, category) VALUES (@Username, @Points, @Dates, @Category)";
+
+                // SqlCommand ve SqlConnection nesnelerini kullan
+                using (SqlCommand cmd = new SqlCommand(query, baglan))
+                {
+                    // Parametreleri ekleyerek SQL sorgusunu güvenli hale getir
+                    cmd.Parameters.AddWithValue("@Username", user);
+                    cmd.Parameters.AddWithValue("@Points", puan);
+                    cmd.Parameters.AddWithValue("@Dates", clickInfo.ClickDateTime);
+                    cmd.Parameters.AddWithValue("@Category", category);
+
+                    // Bağlantıyı aç ve sorguyu çalıştır
+                    baglan.Open();
+                    cmd.ExecuteNonQuery();
+                    baglan.Close();
+                }
+                Response.Redirect("kullanici.aspx?uname=" + user);
+            }        
+            
         }
 
     }

@@ -129,7 +129,13 @@ body {
     .table2-row a {
         color: #001b5b;
     }
+.ok {
+    background-color: forestgreen;
+}
 
+.hata {
+    background-color: lightcoral;
+}
 .header-link {
     text-align: center;
     color: #fff;
@@ -1154,14 +1160,16 @@ a {
         display: flex;
         overflow: hidden;
     }
-    .row .label button{
-        margin-left:25px;
-        margin-right:25px;
-    }
-        .row .label button:hover {
-            cursor: pointer;
-            background: #22b35f;
+
+        .row .label button {
+            margin-left: 25px;
+            margin-right: 25px;
         }
+
+            .row .label button:hover {
+                cursor: pointer;
+                background: #22b35f;
+            }
 
         .row .label .icon-box {
             display: flex;
@@ -1177,13 +1185,13 @@ a {
             user-select: none;
         }
 
-    .row .label .icon-box span {
-        margin: 5px;
-        font-size: 18px;
-    }
+            .row .label .icon-box span {
+                margin: 5px;
+                font-size: 18px;
+            }
 
 /*Puanýmý Kaydet Butonu*/
-.btnsave button {
+.btnsave {
     width: 100px;
     height: 30px;
     cursor: pointer;
@@ -1195,50 +1203,88 @@ a {
     background: #13468f;
 }
 
-.btnsave button, .btnsave button span {
-    transition: 200ms;
-}
+    .btnsave, .btnsave span {
+        transition: 200ms;
+    }
 
-.btnsave button .text {
-    transform: translateX(-10px);
-    color: white;
-    font-weight: bold;
-}
+        .btnsave .text {
+            transform: translateX(-10px);
+            color: white;
+            font-weight: bold;
+        }
 
-.btnsave button .icon {
-    position: absolute;
-    border-left: 1px solid #216fdb;
-    transform: translateX(70px);
-    height: 25px;
-    width: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .btnsave .icon {
+            position: absolute;
+            border-left: 1px solid #216fdb;
+            transform: translateX(70px);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.btnsave button svg {
-    width: 15px;
-    fill: #eee;
-}
+        .btnsave svg {
+            width: 15px;
+            fill: #eee;
+        }
 
-.btnsave button:hover {
-    background: #216fdb;
-}
+        .btnsave:hover {
+            background: #216fdb;
+        }
 
-.btnsave button:hover .text {
-    color: transparent;
-}
+            .btnsave:hover .text {
+                color: transparent;
+            }
 
-.btnsave button:hover .icon {
-    width: 100px;
-    border-left: none;
-    transform: translateX(0);
-}
+            .btnsave:hover .icon {
+                width: 100px;
+                border-left: none;
+                transform: translateX(-5px);
+            }
 
-.btnsave button:focus {
-    outline: none;
-}
+        .btnsave:focus {
+            outline: none;
+        }
 
-        .btnsave button:active .icon svg {
+        .btnsave:active .icon svg {
             transform: scale(0.8);
         }
+
+.btnrpt {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    height: 30px;
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    background: #752a26;
+    cursor: pointer;
+}
+
+    .btnrpt .lable {
+        line-height: 14px;
+        font-size: 14px;
+        color: #eee;
+        font-weight: bold;
+        font-family: sans-serif;
+    }
+
+    .btnrpt:hover {
+        background: #752a26;
+    }
+
+        .btnrpt:hover .svg-icon {
+            animation: spin 2s linear infinite;
+        }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}

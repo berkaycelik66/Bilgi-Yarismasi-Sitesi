@@ -16,7 +16,7 @@
     }
 
     .auto-style4 {
-        height: 134px;
+        height: 200px;
         text-align: center;
     }
 
@@ -37,8 +37,9 @@
         transform: none !important;
         box-shadow: none !important;
         outline: none !important;
-        border-radius : 5px;
+        border-radius: 5px;
     }
+
 
     </style>
     <script>
@@ -63,7 +64,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="yarisma-style">
-        <table style="text-align: center">
+        <table style="text-align: center;">
             <tr>
                 <td>
                     <asp:Button ID="Soru1" runat="server" Text="1" CssClass="auto-style7" OnClientClick="return false"></asp:Button></td>
@@ -108,12 +109,31 @@
             <tr>
                 <td class="auto-style4" colspan="2">
                     <asp:Label ID="Label3" runat="server" Text="Label" CssClass="kopyalanamaz"></asp:Label>
-                    <asp:Label ID="Label5" runat="server"></asp:Label>
-                    <div class="btnsave">
-                    <button class="" id="Button6" runat="server" onserverclick="Button6_Click" visible="false"><span class="text">Puanımı Kaydet</span>
-                        <span class="icon">
-                            <?xml version="1.0" ?><svg class="svg"id="Layer_1" style="enable-background:new 0 0 30 30;" version="1.1" viewBox="0 0 30 30" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M22,4h-2v6c0,0.552-0.448,1-1,1h-9c-0.552,0-1-0.448-1-1V4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18  c1.105,0,2-0.895,2-2V8L22,4z M22,24H8v-6c0-1.105,0.895-2,2-2h10c1.105,0,2,0.895,2,2V24z"/><rect height="5" width="2" x="16" y="4"/></svg></span></button>
-                        </div>
+                    <table>
+                        <tr>
+                            <td>
+                                <button class="btnrpt" id="Button7" runat="server" onserverclick="Button7_Click" visible="false">
+                                    <svg class="svg-icon" fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                        <g stroke="#eee" stroke-linecap="round" stroke-width="1.5">
+                                            <path d="m3.33337 10.8333c0 3.6819 2.98477 6.6667 6.66663 6.6667 3.682 0 6.6667-2.9848 6.6667-6.6667 0-3.68188-2.9847-6.66664-6.6667-6.66664-1.29938 0-2.51191.37174-3.5371 1.01468"></path>
+                                            <path d="m7.69867 1.58163-1.44987 3.28435c-.18587.42104.00478.91303.42582 1.0989l3.28438 1.44986"></path>
+                                        </g></svg>
+                                    <span class="lable">Tekrar Yarış</span></button>
+                            </td>
+                            <td>
+                                <button class="btnsave" id="Button6" runat="server" onserverclick="Button6_Click" visible="false">
+                                    <span class="text">Puanımı Kaydet</span>
+                                    <span class="icon">
+                                        <?xml version="1.0" ?>
+                                        <svg class="svg" id="Layer_1" style="enable-background: new 0 0 30 30;" version="1.1" viewBox="0 0 30 30" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <path d="M22,4h-2v6c0,0.552-0.448,1-1,1h-9c-0.552,0-1-0.448-1-1V4H6C4.895,4,4,4.895,4,6v18c0,1.105,0.895,2,2,2h18  c1.105,0,2-0.895,2-2V8L22,4z M22,24H8v-6c0-1.105,0.895-2,2-2h10c1.105,0,2,0.895,2,2V24z" />
+                                            <rect height="5" width="2" x="16" y="4" />
+                                        </svg></span></button>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <asp:Label ID="Label5" runat="server" CssClass="kopyalanamaz"></asp:Label>
                 </td>
             </tr>
             <tr>
