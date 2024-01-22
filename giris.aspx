@@ -8,55 +8,22 @@
     <link rel="stylesheet" href="stil.css" />
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
         }
 
         .auto-style2 {
-            height: 18px;
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5px;
         }
 
-        .auto-style3 {
-            height: 28px;
-            text-align: center;
-        }
 
-        .auto-style4 {
-            text-align: center;
-        }
-
-        .auto-style5 {
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style6 {
-            height: 18px;
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style7 {
-            height: 28px;
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style8 {
-            text-align: left;
-        }
-
-        .auto-style9 {
-            height: 18px;
-            text-align: left;
-        }
-
-        .auto-style10 {
-            height: 28px;
-            text-align: left;
-        }
         .auto-style11 {
-            height:25px;
+            height: 25px;
         }
     </style>
 </head>
@@ -75,8 +42,8 @@
                     <td style="width: 250px"></td>
                     <td>
 
-                        <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio"/>
-                        <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" CssClass="btnio"/>
+                        <asp:Button ID="btnGiris" runat="server" Text="Giriş Yap" Font-Size="Large" OnClick="btnGiris_Click" CssClass="btnio" />
+                        <asp:Button ID="btnKayit" runat="server" Text="Kayıt Ol" Font-Size="Large" OnClick="btnKayit_Click" CssClass="btnio" />
 
                     </td>
                 </tr>
@@ -95,33 +62,30 @@
 
             <table class="auto-style1">
                 <tr>
-                    <td class="h1" colspan="3"><strong>GİRİŞ YAP</strong></td>
-                </tr>
-                <tr>
-                    <td class="auto-style7">MAİL / USERNAME</td>
-                    <td class="auto-style3">:</td>
-                    <td class="auto-style10">
-                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <td class="auto-style1">
+                        <div class="form__group field">
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="form__field"></asp:TextBox>
+                            <label for="name" class="form__label">MAIL / USERNAME</label>
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style6">ŞİFRE</td>
-                    <td class="auto-style2">:</td>
-                    <td class="auto-style9">
-                        <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
-                    </td>
+                    <td class="auto-style1">
+                        <div class="form__group field">
+                            <asp:TextBox ID="TextBox2" runat="server" TextMode="Password" CssClass="form__field"></asp:TextBox>
+                            <label for="name" class="form__label">ŞİFRE</label>
+                        </div>
                 </tr>
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style8">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Giriş" Width="59px" CssClass="btnio auto-style11" />
+                    <td class="auto-style1">
+                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Giriş Yap" Width="78px" CssClass="btnio auto-style11" />
                     </td>
                 </tr>
+
+            </table>
+            <table class="auto-style2">
                 <tr>
-                    <td class="auto-style5">&nbsp;</td>
-                    <td class="auto-style4">&nbsp;</td>
-                    <td class="auto-style8">
+                    <td class="auto-style2">
                         <asp:Label ID="Label1" runat="server"></asp:Label>
                     </td>
                 </tr>
