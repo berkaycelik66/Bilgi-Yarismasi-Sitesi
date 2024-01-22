@@ -16,6 +16,16 @@
 
         .auto-style3 {
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10px;
+        }
+
+        .auto-style4 {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5px;
         }
 
         .auto-style11 {
@@ -24,7 +34,8 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table width="1000px">
+    <h1 class="h1">Soru Gönder</h1>
+    <table width="1000px" style="margin-left:85px;">
         <tr>
             <td>
                 <table width="500px" class="auto-style1">
@@ -33,6 +44,20 @@
                             <div class="form__group field">
                                 <asp:TextBox ID="TextBox1" runat="server" Height="101px" TextMode="MultiLine" Width="350px" CssClass="form__field"></asp:TextBox>
                                 <label for="name" class="form__label">SORU</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">
+                            <div class="form__group field">
+                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form__field">
+                                    <asp:ListItem>Seçiniz</asp:ListItem>
+                                    <asp:ListItem>Spor</asp:ListItem>
+                                    <asp:ListItem>Tarih</asp:ListItem>
+                                    <asp:ListItem>Bilim</asp:ListItem>
+                                    <asp:ListItem>Sanat</asp:ListItem>
+                                </asp:DropDownList>
+                                <label for="name" class="form__label">KATEGORİ</label>
                             </div>
                         </td>
                     </tr>
@@ -75,19 +100,11 @@
                 </table>
             </td>
         </tr>
+    </table>
+
+    <table class="auto-style3">
         <tr>
-            <td class="auto-style1">
-                <asp:DropDownList ID="DropDownList1" runat="server">
-                    <asp:ListItem>Seçiniz</asp:ListItem>
-                    <asp:ListItem>Spor</asp:ListItem>
-                    <asp:ListItem>Tarih</asp:ListItem>
-                    <asp:ListItem>Bilim</asp:ListItem>
-                    <asp:ListItem>Sanat</asp:ListItem>
-                </asp:DropDownList>
-            </td>
-        </tr>
-        <tr>
-            <td class="btnGonder auto-style11">
+            <td class="btnGonder auto-style3">
                 <button id="Button1" runat="server" onserverclick="Button1_Click">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -103,9 +120,9 @@
             </td>
         </tr>
     </table>
-    <table class="auto-style2">
+    <table class="auto-style4">
         <tr>
-            <td class="auto-style2">
+            <td class="auto-style4">
                 <asp:Label ID="Label1" runat="server"></asp:Label>
             </td>
         </tr>

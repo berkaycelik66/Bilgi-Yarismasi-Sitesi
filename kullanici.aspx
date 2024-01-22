@@ -17,6 +17,14 @@
             font-size: xx-large;
             font-weight: bold;
         }
+
+        .auto-style4 {
+            text-align: center;
+            margin-left:auto;
+            margin-right:auto;
+            font-size: 30px;
+
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -69,11 +77,16 @@
                         <%}%>
                     </div>
                 </ItemTemplate>
-                <FooterTemplate>
-                    <asp:Label ID="lblMessage" runat="server" Visible="false"></asp:Label>
-                </FooterTemplate>
             </asp:Repeater>
         </div>
+
+        <table class="auto-style4">
+            <tr>
+                <td class="auto-style4">
+                    <asp:Label ID="lblMessage" runat="server" Visible="false"></asp:Label>
+                </td>
+            </tr>
+        </table>
 
         <table class="auto-style1 top-list">
             <tr>
@@ -94,16 +107,8 @@
                     <% } %>
                 </td>
             </tr>
-
         </table>
     </asp:Panel>
-    <table>
-        <tr>
-            <td class="top-list" colspan="3">
-                <asp:Label ID="Label2" runat="server" Visible="false" CssClass="top-list"></asp:Label>
-            </td>
-        </tr>
-    </table>
 
     <br />
     <br />
@@ -113,7 +118,7 @@
         <table class="table2">
             <tr class="table2-header">
                 <td>Kategori</td>
-                <td style="width:400px;">Eklenen Sorular</td>
+                <td style="width: 400px;">Eklenen Sorular</td>
                 <td>Doğru Cevap</td>
                 <td>Onay</td>
                 <td></td>
@@ -124,7 +129,7 @@
                 <ItemTemplate>
                     <tr class="table2-row">
                         <td><%#Eval("category")%></td>
-                        <td style="width:400px;"><%#Eval("question")%></td>
+                        <td style="width: 400px;"><%#Eval("question")%></td>
                         <td><%#Eval("true_answer")%></td>
                         <td><%#Eval("state").Equals(true) ? "Onaylandı": "Onaylanmadı"%></td>
                         <td class="btnedit">

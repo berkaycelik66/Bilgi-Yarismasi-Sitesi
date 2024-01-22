@@ -11,8 +11,8 @@ namespace YarismaSitesi
 {
     public partial class admin_sorular : System.Web.UI.Page
     {
-        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
-        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-USOAJ0L\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
+        //SqlConnection baglan = new SqlConnection("Data Source=DESKTOP-GP90RBV\\SQLEXPRESS;Initial Catalog=yarisma;Integrated Security=True");
 
         int soruSayfa;
         protected void Page_Load(object sender, EventArgs e)
@@ -34,14 +34,14 @@ namespace YarismaSitesi
         {
             baglan.Open();
 
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions", baglan);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM questions ORDER BY id DESC", baglan);
             DataTable dt = new DataTable();
             da.Fill(dt);
 
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = dt.DefaultView;
             pds.AllowPaging = true; //Sayfalama aktif olması için
-            pds.PageSize = 3; //Bir sayfadaki kayıt sayısı
+            pds.PageSize = 10; //Bir sayfadaki kayıt sayısı
 
             
             if (Request.QueryString["soruSayfa"] != null)

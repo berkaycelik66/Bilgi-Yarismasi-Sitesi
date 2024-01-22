@@ -59,7 +59,7 @@
         </div>
 
         <div id="content">
-
+            <h1 class="h1">Kayıt Ol</h1>
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style1">

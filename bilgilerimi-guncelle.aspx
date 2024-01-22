@@ -3,98 +3,72 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
-            width: 100%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 15px;
         }
 
         .auto-style2 {
-            height: 18px;
             text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5px;
         }
 
         .auto-style3 {
-            height: 28px;
             text-align: center;
-        }
-
-        .auto-style4 {
-            text-align: center;
-        }
-
-        .auto-style5 {
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style6 {
-            height: 18px;
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style7 {
-            height: 28px;
-            text-align: right;
-            width: 502px;
-        }
-
-        .auto-style8 {
-            text-align: left;
-        }
-
-        .auto-style9 {
-            height: 18px;
-            text-align: left;
-        }
-
-        .auto-style10 {
-            height: 28px;
-            text-align: left;
-        }
-
-        .auto-style11 {
             margin-left: auto;
             margin-right: auto;
+            padding-top: 5px;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Panel runat="server" id="panelBilgi">
+    <asp:Panel runat="server" ID="panelBilgi">
+        <h1 class="h1">BİLGİLERİM</h1>
         <table class="auto-style1">
             <tr>
-                <td class="h1" colspan="3"><strong>BİLGİLERİM</strong></td>
-            </tr>
-            <tr>
-                <td class="auto-style7">*MAİL</td>
-                <td class="auto-style3">:</td>
-                <td class="auto-style10">
-                    <asp:TextBox ID="TextBox1" runat="server" TextMode="Email"></asp:TextBox>
+                <td class="auto-style3">
+                    <div class="form__group field">
+                        <asp:TextBox ID="TextBox1" runat="server" TextMode="Email" CssClass="form__field"></asp:TextBox>
+                        <label for="name" class="form__label">*MAIL</label>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style6">*USERNAME</td>
-                <td class="auto-style2">:</td>
-                <td class="auto-style9">
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <td class="auto-style1">
+                    <div class="form__group field">
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="form__field"></asp:TextBox>
+                        <label for="name" class="form__label">*USERNAME</label>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5">*MEVCUT ŞİFRE</td>
-                <td class="auto-style4">:</td>
-                <td class="auto-style8">
-                    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <td class="auto-style1">
+                    <div class="form__group field">
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="form__field"></asp:TextBox>
+                        <label for="name" class="form__label">*MEVCUT ŞİFRE</label>
+                    </div>
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5">YENİ ŞİFRE</td>
-                <td class="auto-style4">:</td>
-                <td class="auto-style8">
-                    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                <td class="auto-style1">
+                    <div class="form__group field">
+                        <asp:TextBox ID="TextBox4" runat="server" CssClass="form__field"></asp:TextBox>
+                        <label for="name" class="form__label">YENİ ŞİFRE</label>
+                    </div>
                 </td>
             </tr>
+        </table>
+        <table class="auto-style2">
             <tr>
-                <td class="auto-style5">NOT:Zorunlu alanlar * ile işaretlenmiştir</td>
-                <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style8">
+                <td class="auto-style2">NOT: Zorunlu alanlar * ile işaretlenmiştir</td>
+            </tr>
+        </table>
+        <table class="auto-style3">
+            <tr>
+                <td class="auto-style3">
                     <button id="Button1" runat="server" onserverclick="Button1_Click" class="your-custom-button-class btngnclle">
                         <span class="button__text">Güncelle</span>
                         <span class="button__icon">
@@ -103,29 +77,28 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style8">
-                    <asp:Label ID="Label1" runat="server"></asp:Label>
+                <td class="auto-style3">
+                    <button class="btnio" runat="server" onserverclick="Button4_Click">Hesabımı Sil</button>
                 </td>
             </tr>
+        </table>
+
+        <table class="auto-style2">
             <tr>
-                <td class="auto-style5">&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style8 ">
-                    <button class="btnio" runat="server" onserverclick="Button4_Click">Hesabımı Sil</button>
+                <td class="auto-style2">
+                    <asp:Label ID="Label1" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>
     </asp:Panel>
 
-    <asp:Panel runat="server" id="panelSil" Visible="false">
+    <asp:Panel runat="server" ID="panelSil" Visible="false">
         <table class="auto-style1">
             <tr>
                 <td class="h1" colspan="2">HESABI GERÇEKTEN SİLMEK İSTİYOR MUSUNUZ?</td>
             </tr>
             <tr>
-                <td class="auto-style11 yesNO">
+                <td class="auto-style1 yesNO">
                     <button id="Button2" runat="server" onserverclick="Button2_Click">
                         <span class="text">Evet</span></button>
                     <button id="Button3" runat="server" onserverclick="Button3_Click">

@@ -20,11 +20,6 @@
             margin-right: auto;
             padding-top: 5px;
         }
-
-
-        .auto-style11 {
-            height: 25px;
-        }
     </style>
 </head>
 
@@ -59,7 +54,7 @@
         </div>
 
         <div id="content">
-
+            <h1 class="h1">GİRİŞ YAP</h1>
             <table class="auto-style1">
                 <tr>
                     <td class="auto-style1">
