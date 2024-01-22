@@ -25,12 +25,12 @@ namespace YarismaSitesi
             }
             else if (usernameCheck(username))
             {
-                Label1.Text = username + " Adlı Kullanıcının Profili";
+                Label1.Text = username + " ADLI KULLANICININ PROFİLİ";
                 if (user != null)
                 {
                     if (username == user.ToString())
                     {
-                        Label1.Text ="Profilim";
+                        Label1.Text ="PROFİLİM";
                         pnlQuestions.Visible = true;
                     }
                     else
@@ -79,7 +79,7 @@ namespace YarismaSitesi
             }
             else
             {
-                Label1.Text = "Böyle bir kullanıcı mevcut değildir.";
+                Label1.Text = "Böyle bir kullanıcı mevcut değildir.".ToUpper();
                 pnlQuestions.Visible = false;
                 pnlPoints.Visible = false;
             }

@@ -73,7 +73,6 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
     .table-row:nth-child(even) {
         background-color: lightgray; /* Light gray for even rows */
     }
@@ -96,13 +95,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
+    border-collapse: collapse;
+    padding: 10px;
 }
 
 .table2-header {
     text-align: center;
     width: 100%;
     height: 40px;
-    border-radius: 5px 5px 0px 0px;
     color: white;
     background-image: linear-gradient(to bottom, #03122e, #001b5b);
     margin-left: auto;
@@ -118,6 +118,8 @@ body {
     margin-right: auto;
 }
 
+    
+
     .table2-row:nth-child(even) {
         background-color: lightgray; /* Light gray for even rows */
     }
@@ -129,6 +131,7 @@ body {
     .table2-row a {
         color: #001b5b;
     }
+
 .ok {
     background-color: forestgreen;
 }
@@ -136,6 +139,7 @@ body {
 .hata {
     background-color: lightcoral;
 }
+
 .header-link {
     text-align: center;
     color: #fff;
@@ -157,6 +161,9 @@ body {
     .top-list a {
         color: #001b5b;
     }
+        .top-list a:hover {
+            color: #258e51;
+        }
 
 .admin {
     width: 100%;
@@ -289,7 +296,7 @@ a {
         .btnsil a .icon {
             position: absolute;
             border-left: 1px solid #e41b1b;
-            transform: translateX(60px);
+            transform: translateX(70px);
             height: 25px;
             width: 25px;
             display: flex;
@@ -998,7 +1005,7 @@ a {
 }
 
     .basla:hover {
-        color: #22b35f;
+        color: mediumaquamarine;
         cursor: pointer;
     }
 
@@ -1034,13 +1041,13 @@ a {
 }
 
 .basla:hover #rightArrow {
-    background-color: #22b35f;
+    background-color: mediumaquamarine;
     left: -15%;
     animation: 0.6s ease-in-out both infinite alternate rightArrow8;
 }
 
 .basla:hover #leftArrow {
-    background-color: #22b35f;
+    background-color: mediumaquamarine;
     left: 105%;
     animation: 0.6s ease-in-out both infinite alternate leftArrow8;
 }
@@ -1097,7 +1104,7 @@ a {
 
 .basla:hover #clip {
     animation: 0.2s ease-in-out 0.55s both greenLight8;
-    --color: #22b35f;
+    --color: mediumaquamarine;
 }
 
 @keyframes changeColor8 {
@@ -1106,7 +1113,7 @@ a {
     }
 
     to {
-        background-color: #22b35f;
+        background-color: mediumaquamarine;
     }
 }
 
@@ -1116,7 +1123,7 @@ a {
     }
 
     to {
-        box-shadow: 0 0 2px #22b35f;
+        box-shadow: 0 0 2px mediumaquamarine;
     }
 }
 
@@ -1125,7 +1132,7 @@ a {
     }
 
     to {
-        box-shadow: inset 0px 0px 15px 15px #22b35f;
+        box-shadow: inset 0px 0px 15px 15px mediumaquamarine;
     }
 }
 
@@ -1168,7 +1175,7 @@ a {
 
             .row .label button:hover {
                 cursor: pointer;
-                background: #22b35f;
+                background: mediumaquamarine;
             }
 
         .row .label .icon-box {
@@ -1287,4 +1294,13 @@ a {
     100% {
         transform: rotate(-360deg);
     }
+}
+
+.h1 {
+    padding: 2px 0 0 0;
+    height: 26px;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    text-transform: uppercase;
 }

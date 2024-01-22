@@ -23,7 +23,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 class="auto-style2">KATEGORİ SEÇ</h1>
+    <h1 class="h1">KATEGORİ SEÇ</h1>
 
         <div class="row">
             <div class="label">
@@ -38,7 +38,7 @@
                 </button>
 
                 <button class="icon-box" runat="server" onserverclick="btnSpor_Click">
-                    <i class="fa-brands fa-dribbble"></i>
+                    <i class="fa-solid fa-basketball"></i>
                     <span>Spor</span>
                 </button>
 
@@ -47,7 +47,7 @@
                     <span>Tarih</span>
                 </button>
 
-                <button class="icon-box" runat="server">
+                <button class="icon-box" runat="server" onserverclick="btnBilim_Click">
                     <i class="fa-solid fa-flask"></i>
                     <span>Bilim</span>
                 </button>

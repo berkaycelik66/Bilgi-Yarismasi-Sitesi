@@ -58,10 +58,10 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="panelBilgi">
+    <asp:Panel runat="server" id="panelBilgi">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style4" colspan="3"><strong>BİLGİLERİM</strong></td>
+                <td class="h1" colspan="3"><strong>BİLGİLERİM</strong></td>
             </tr>
             <tr>
                 <td class="auto-style7">*MAİL</td>
@@ -112,17 +112,17 @@
             <tr>
                 <td class="auto-style5">&nbsp;</td>
                 <td class="auto-style4">&nbsp;</td>
-                <td class="auto-style8">
-                    <a href="#" onclick="openPanel()">Hesabımı Sil</a>
+                <td class="auto-style8 ">
+                    <button class="btnio" runat="server" onserverclick="Button4_Click">Hesabımı Sil</button>
                 </td>
             </tr>
         </table>
-    </div>
+    </asp:Panel>
 
-    <div id="panelSil">
+    <asp:Panel runat="server" id="panelSil" Visible="false">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style4" colspan="2">Hesabı Gerçekten Silmek İstiyor Musunuz?</td>
+                <td class="h1" colspan="2">HESABI GERÇEKTEN SİLMEK İSTİYOR MUSUNUZ?</td>
             </tr>
             <tr>
                 <td class="auto-style11 yesNO">
@@ -133,24 +133,5 @@
                 </td>
             </tr>
         </table>
-    </div>
-
-    <script>
-        function openPanel() {
-            // Paneli gizle
-            document.getElementById("panelBilgi").style.display = "none";
-            // Panel görünür yap
-            document.getElementById("panelSil").style.display = "block";
-        }
-
-        function closePanel() {
-            document.getElementById("panelBilgi").style.display = "block";
-            document.getElementById("panelSil").style.display = "none";
-        }
-
-        // Sayfa yüklendiğinde closePanel fonksiyonunu çalıştır
-        window.onload = function () {
-            closePanel();
-        };
-    </script>
+    </asp:Panel>
 </asp:Content>

@@ -59,7 +59,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table class="auto-style1">
         <tr>
-            <td class="auto-style2" colspan="3"><strong>SORU GÖNDER</strong></td>
+            <td class="h1" colspan="3"><strong>SORU GÖNDER</strong></td>
         </tr>
         <tr>
             <td class="auto-style7">Soru</td>

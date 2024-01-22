@@ -37,5 +37,10 @@ namespace YarismaSitesi
             Session["YarismaK"] = "Tarih";
             Response.Redirect("yarisma.aspx");
         }
+        protected void btnBilim_Click(object sender, EventArgs e)
+        {
+            Session["YarismaK"] = "Bilim";
+            Response.Redirect("yarisma.aspx");
+        }
     }
 }

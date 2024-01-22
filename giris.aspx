@@ -95,7 +95,7 @@
 
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style4" colspan="3"><strong>GİRİŞ YAP</strong></td>
+                    <td class="h1" colspan="3"><strong>GİRİŞ YAP</strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style7">MAİL / USERNAME</td>

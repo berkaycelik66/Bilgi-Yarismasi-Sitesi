@@ -133,7 +133,7 @@ namespace YarismaSitesi
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            Response.Redirect(Request.UrlReferrer.ToString());
+            Response.Redirect("bilgilerimi-guncelle.aspx?id=" + Session["id"].ToString());
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -145,6 +145,11 @@ namespace YarismaSitesi
 
             Session.Abandon();
             Response.Redirect("anasayfa.aspx");
+        }
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            panelBilgi.Visible = false;
+            panelSil.Visible = true;
         }
     }
 }

@@ -16,9 +16,9 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3 class="auto-style2">TOP LİST</h3>
+    <h1 class="h1">TOP LİST</h1>
     <div class="top-list">
-        <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a>
+        <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a> | <a href="top-list.aspx?k=Sanat">Bilim</a>
     </div>
         
     <div class="table">
@@ -32,7 +32,7 @@
         <asp:Repeater ID="Repeater1" runat="server" >
             <ItemTemplate>
                 <div class="table-row">
-                    <div class="table-data">
+                    <div class="table-data top-list">
                         <a href='<%# "kullanici.aspx?uname=" + Eval("username") %>'>
                             <%#Eval("username")%>
                         </a>

@@ -15,6 +15,15 @@ namespace YarismaSitesi
     {
 
         /// <summary>
+        /// panelBilgi denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelBilgi;
+
+        /// <summary>
         /// TextBox1 denetimi.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace YarismaSitesi
         /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// panelSil denetimi.
+        /// </summary>
+        /// <remarks>
+        /// Otomatik olarak oluşturulan alan.
+        /// Değiştirmek için, alan bildirimini tasarımcı dosyasından arka plan kod dosyasına taşıyın.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelSil;
 
         /// <summary>
         /// Button2 denetimi.
