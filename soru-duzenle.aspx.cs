@@ -108,7 +108,7 @@ namespace YarismaSitesi
                     SqlCommand cmd = new SqlCommand("update questions set question='" + TextBox1.Text + "', true_answer='" + TextBox2.Text + "', false_answer1='" + TextBox3.Text + "', false_answer2='" + TextBox4.Text + "', false_answer3='" + TextBox5.Text + "', category='" + DropDownList1.Text + "', state='false' where id='" + id +"'", baglan);
                     cmd.ExecuteNonQuery();
                     baglan.Close();
-                    Label1.Text = "Soru Gönderildi. Onaylandıktan sonra Yarışmaya Eklenecektir.";
+                    Label1.Text = "Soru Düzenlendi. Onaylandıktan sonra Yarışmaya Eklenecektir.";
                     Label1.BackColor = System.Drawing.Color.LightGreen;                    
                 }
             }

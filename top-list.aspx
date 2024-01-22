@@ -18,16 +18,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1 class="h1">TOP LİST</h1>
     <div class="top-list">
-        <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a> | <a href="top-list.aspx?k=Sanat">Bilim</a>
+        <a href="top-list.aspx">Genel Puan Durumu</a> | <a href="top-list.aspx?k=Spor">Spor</a> | <a href="top-list.aspx?k=Tarih">Tarih</a> | <a href="top-list.aspx?k=Sanat">Sanat</a> | <a href="top-list.aspx?k=Bilim">Bilim</a>
     </div>
         
     <div class="table">
 
         <div class="table-header">
-            <div class="tableheader__item">Username</div>
-            <div class="tableheader__item">Points</div>
-            <div class="tableheader__item">Date</div>
-            <div class="tableheader__item">Category</div>
+            <div class="tableheader__item">Kullanıcı Adı</div>
+            <div class="tableheader__item">Puan</div>
+            <div class="tableheader__item">Tarih</div>
+            <div class="tableheader__item">Kategori</div>
         </div>
         <asp:Repeater ID="Repeater1" runat="server" >
             <ItemTemplate>

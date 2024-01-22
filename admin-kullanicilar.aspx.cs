@@ -38,7 +38,7 @@ namespace YarismaSitesi
             PagedDataSource pds = new PagedDataSource();
             pds.DataSource = dt.DefaultView;
             pds.AllowPaging = true; //Sayfalama aktif olması için
-            pds.PageSize = 8; //Bir sayfadaki kayıt sayısı
+            pds.PageSize = 10; //Bir sayfadaki kayıt sayısı
 
             int userSayfa;
             if (Request.QueryString["userSayfa"] != null)

@@ -143,6 +143,16 @@ namespace YarismaSitesi
             cmd.ExecuteNonQuery();
             baglan.Close();
 
+            baglan.Open();
+            SqlCommand cmd2 = new SqlCommand("delete from pointsList where username='" + Session["username"].ToString() + "'", baglan);
+            cmd2.ExecuteNonQuery();
+            baglan.Close();
+
+            baglan.Open();
+            SqlCommand cmd3 = new SqlCommand("delete from questions where sender='" + Session["username"].ToString() + "'", baglan);
+            cmd3.ExecuteNonQuery();
+            baglan.Close();
+
             Session.Abandon();
             Response.Redirect("anasayfa.aspx");
         }

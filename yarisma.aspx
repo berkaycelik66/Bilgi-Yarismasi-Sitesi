@@ -2,45 +2,46 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-    .auto-style1 {
-        text-align: center;
-    }
+        .auto-style1 {
+            text-align: center;
+        }
 
-    .auto-style2 {
-        width: 100%;
-    }
+        .auto-style2 {
+            width: 100%;
+        }
 
-    .auto-style3 {
-        height: 22px;
-        text-align: center;
-    }
+        .auto-style3 {
+            height: 22px;
+            text-align: center;
+            font-size: 25px;
+        }
 
-    .auto-style4 {
-        height: 200px;
-        text-align: center;
-    }
+        .auto-style4 {
+            height: 250px;
+            text-align: center;
+            font-size: 25px;
+        }
 
-    .auto-style5 {
-        text-align: right;
-        float: right;
-    }
+        .auto-style5 {
+            text-align: right;
+            float: right;
+        }
 
-    .auto-style6 {
-        text-align: left;
-    }
+        .auto-style6 {
+            text-align: left;
+            font-size: 20px;
+        }
 
-    .auto-style7 {
-        width: 100%;
-        background-color: lightgray;
-        touch-action: manipulation;
-        transition: all 0.3s;
-        transform: none !important;
-        box-shadow: none !important;
-        outline: none !important;
-        border-radius: 5px;
-    }
-
-
+        .auto-style7 {
+            width: 100%;
+            background-color: lightgray;
+            touch-action: manipulation;
+            transition: all 0.3s;
+            transform: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+            border-radius: 5px;
+        }
     </style>
     <script>
         // Tarayıcı geri tuşu algılandığında çalışacak fonksiyon
@@ -109,7 +110,7 @@
             <tr>
                 <td class="auto-style4" colspan="2">
                     <asp:Label ID="Label3" runat="server" Text="Label" CssClass="kopyalanamaz"></asp:Label>
-                    <table>
+                    <table style="margin-left: auto; margin-right: auto;">
                         <tr>
                             <td>
                                 <button class="btnrpt" id="Button7" runat="server" onserverclick="Button7_Click" visible="false">
@@ -152,11 +153,14 @@
                     <asp:Button ID="Button4" runat="server" Text="Button" OnClick="Button_Click" CssClass="btnscnk yarisma-style-button" />
                 </td>
             </tr>
+
             <tr>
                 <td class="auto-style6">
+                    <br />
                     <asp:Label ID="Label4" runat="server"></asp:Label>
                 </td>
                 <td>
+                    <br />
                     <button class="btnnext auto-style5" id="Button5" runat="server" onserverclick="Button5_Click" visible="false">
                         Sıradaki Soru<div class="icon">
                             <svg
