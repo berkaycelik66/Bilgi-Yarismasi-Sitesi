@@ -119,13 +119,19 @@ namespace YarismaSitesi
 
             if (Session["task"].ToString() == "admin")
             {
-                SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "'@admin where sender='" + oldUsername + "@admin'", baglan);
+                SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "@admin' where sender='" + oldUsername + "@admin'", baglan);
                 cmd.ExecuteNonQuery();
+
+                SqlCommand cmd2 = new SqlCommand("update pointsList set username='" + newUsername + "' where username='" + oldUsername + "'", baglan);
+                cmd2.ExecuteNonQuery();
             }
             else
             {
                 SqlCommand cmd = new SqlCommand("update questions set sender='" + newUsername + "' where sender='" + oldUsername + "'", baglan);
                 cmd.ExecuteNonQuery();
+
+                SqlCommand cmd2 = new SqlCommand("update pointsList set username='" + newUsername + "' where username='" + oldUsername + "'", baglan);
+                cmd2.ExecuteNonQuery();
             }
 
             baglan.Close();
